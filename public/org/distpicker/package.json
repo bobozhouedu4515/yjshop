@@ -1,0 +1,112 @@
+{
+  "_from": "distpicker",
+  "_id": "distpicker@2.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-qU7YHGwko2jI04sbS495SR/uTb+9ozv/UKFk6nSiG931et/zozgfjowNiYdv5e+WnPxUeLj8TwRFsPvmJeNrnw==",
+  "_location": "/distpicker",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "distpicker",
+    "name": "distpicker",
+    "escapedName": "distpicker",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/distpicker/-/distpicker-2.0.5.tgz",
+  "_shasum": "84c257924b089b9129bdf9691d46fa14710911c5",
+  "_spec": "distpicker",
+  "_where": "D:\\wamp\\www\\yjshop",
+  "author": {
+    "name": "Chen Fengyuan",
+    "url": "https://chenfengyuan.com"
+  },
+  "bugs": {
+    "url": "https://github.com/fengyuanchen/distpicker/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A simple jQuery plugin for picking provinces, cities and districts of China.",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "change-case": "^3.0.2",
+    "create-banner": "^1.0.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^1.2.0",
+    "jquery": "^3.3.1",
+    "lint-staged": "^8.1.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-watch": "^4.3.1",
+    "uglify-js": "^3.4.9"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "homepage": "https://fengyuanchen.github.io/distpicker",
+  "keywords": [
+    "中国",
+    "省份",
+    "城市",
+    "行政区",
+    "省市区",
+    "三级联动",
+    "地址选择器",
+    "China",
+    "Chinese",
+    "province",
+    "provinces",
+    "city",
+    "cities",
+    "district",
+    "districts",
+    "pick",
+    "picker",
+    "picking",
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "html",
+    "css",
+    "javascript",
+    "front-end",
+    "web",
+    "development"
+  ],
+  "license": "MIT",
+  "main": "dist/distpicker.common.js",
+  "module": "dist/distpicker.esm.js",
+  "name": "distpicker",
+  "peerDependencies": {
+    "jquery": ">= 1.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengyuanchen/distpicker.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "clear": "del-cli dist",
+    "compress": "uglifyjs dist/distpicker.js -o dist/distpicker.min.js -c -m --comments /^!/",
+    "lint": "eslint src *.js --fix",
+    "release": "npm run clear && npm run lint && npm run build && npm run compress",
+    "start": "rollup -c -m -w"
+  },
+  "unpkg": "dist/distpicker.js",
+  "version": "2.0.5"
+}
