@@ -92,6 +92,13 @@
                             <li><a href="{{route ('admin.config.edit',['name'=>'upload'])}}">上传配置</a></li>
                         </ul>
                     </li>
+                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                class="mdi mdi-laptop-windows"></i><span class="hide-menu">订单管理 </span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{route ('admin.order')}}">订单列表</a></li>
+                            <li><a href="">订单***</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
             </nav>

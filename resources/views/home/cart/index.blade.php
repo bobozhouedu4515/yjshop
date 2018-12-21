@@ -577,22 +577,13 @@
                     layer.msg('还没选你的宝贝呢!')
                     return
                 } else {
-                    // console.log(this.checkedBox)
-                    $.post('/home/order/?ids=' + this.checkedBox, {_token:'{{csrf_token ()}}'}, function () {
-
-                    }, 'json');
-                    {{--.then(function (response) {--}}
-                    {{--location.href='{{route ('home.pay.index')}}'--}}
-                    {{--})--}}
-                    {{--}--}}
-                    //判断用户是否有勾选商品
-                    // if(this.checkedBox == 0){
-                    //     layer.msg('请选择要结算的商品');
-                    //     return;
-                    // }
-                    //跳转到订单页面
-
-                    {{--location.href = "{{route('home.order.index')}}?ids=" + this.checkedBox;--}}
+                    // 判断用户是否有勾选商品
+                    if(this.checkedBox == 0){
+                        layer.msg('请选择要结算的商品');
+                        return;
+                    }
+                    // 跳转到订单页面
+                    location.href = "{{route('home.order.index')}}?ids=" + this.checkedBox;
                 }
             },
         },

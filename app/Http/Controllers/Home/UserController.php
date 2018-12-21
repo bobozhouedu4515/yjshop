@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers\Home;
 
+    use App\Models\Order;
     use App\User;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
@@ -143,6 +144,22 @@
             $id = \request () -> query ('id');
             $type = \request () -> query ('type') ?: 'info';
             return view ('home.user.user_' . $type);
+        }
+        //确认收货
+        public function receipt (Order $order)
+        {
+            if ($order->user_id==auth ()->id ()&&$order->status==4){
+                $order->update (['status'=>5]);
+                return back ()->with ('success','已收货');
+            }else{
+                return back ()->with ('danger','非法操作');
+            }
+
+        }
+
+        public function qqlogin ()
+        {
+
         }
 
     }

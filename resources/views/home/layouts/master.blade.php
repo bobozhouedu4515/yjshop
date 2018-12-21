@@ -11,10 +11,11 @@
     <script type="text/javascript" src="{{asset ('org/shop')}}/js/jquery.SuperSlide.2.1.1.source.js"></script>
     @stack('css')
     <style>
-        .dorpdown-layer>ul{
+        .dorpdown-layer > ul {
             width: 308px !important;
         }
-        .dorpdown-layer>ul>li{
+
+        .dorpdown-layer > ul > li {
             width: 308px !important;
             padding: 0 !important;
             height: 7em;
@@ -22,7 +23,7 @@
             padding: 0;
         }
 
-        .dorpdown-layer>ul>li>img{
+        .dorpdown-layer > ul > li > img {
             height: 6em;
             width: 25%;
             float: left;
@@ -32,7 +33,8 @@
             margin: 0.5em 0;
             margin-left: 0.5em;
         }
-        .dorpdown-layer>ul>li> .des{
+
+        .dorpdown-layer > ul > li > .des {
             display: inline-block;
             height: 5em;
             float: left;
@@ -41,10 +43,10 @@
             margin-top: 1em;
             margin-left: 5%;
             width: 60%;
-            color:black;
+            color: black;
             /*white-space: nowrap;*/
             /*text-overflow:ellipsis;*/
-            overflow:hidden;
+            overflow: hidden;
         }
 
     </style>
@@ -111,11 +113,14 @@
         </ul>
         <ul class="header-right">
             @auth()
-            <li class="denglu">Hi~<a class="red" href="{{route ('home.user.user_info',auth ()->id ())}}">{{auth ()->user ()->name}}</a> <a href="{{route ('home.user.logout')}}">退出</a></li>
-            <li class="shu"></li>
+                <li class="denglu">Hi~<a class="red"
+                                         href="{{route ('home.user.user_info',auth ()->id ())}}">{{auth ()->user ()->name}}</a>
+                    <a href="{{route ('home.user.logout')}}">退出</a></li>
+                <li class="shu"></li>
             @else
-            <li class="denglu">Hi~<a class="red" href="{{route ('home.user.login')}}">请登录!</a> <a href="{{route ('home.user.register')}}">[免费注册]</a></li>
-            <li class="shu"></li>
+                <li class="denglu">Hi~<a class="red" href="{{route ('home.user.login')}}">请登录!</a> <a
+                        href="{{route ('home.user.register')}}">[免费注册]</a></li>
+                <li class="shu"></li>
             @endauth
             <li class="denglu"><a class="ing_ps" href="#">我的收藏</a></li>
             <li class="shu"></li>
@@ -159,29 +164,31 @@
         <i class="gw-right"></i>
         <div class="sc">
             @auth()
-            <i class="gw-count">{{$_carts->where('user_id',auth ()->id ())->count()}}</i>
-            <i class="sd"></i>
-                @endauth
+                <i class="gw-count">{{$_carts->where('user_id',auth ()->id ())->count()}}</i>
+                <i class="sd"></i>
+            @endauth
         </div>
 
         <a href="{{route ('home.cart.index')}}">我的购物车</a>
         <div class="dorpdown-layer">
             <ul>
                 @auth()
-                    @if($_carts->where('user_id',auth ()->id ())->count())
-                @foreach($_carts as $cart)
-                <li class="meiyou">
-                    <img src="{{$cart->picture}}" alt="">
-                    <a  class="des" href="{{route ('home.goods.show',['id'=>$cart->good_id])}}">{{$cart->description}}</a>
-                </li>
-                @endforeach
-                    @else
-                <li class="meiyou">
-                    <img src="{{asset ('org/shop')}}/images/settleup-nogoods.png">
-                    <span>购物车中还没有商品，赶紧选购吧！</span>
-                </li>
+                    @foreach($_carts as $cart)
+                        @if($cart->user_id==auth ()->id ())
+
+                                <li class="meiyou">
+                                    <img src="{{$cart->picture}}" alt="">
+                                    <a class="des"
+                                       href="{{route ('home.goods.show',['id'=>$cart->good_id])}}">{{$cart->description}}</a>
+                                </li>
+                            @else
+                            <li class="meiyou">
+                                <img src="{{asset ('org/shop')}}/images/settleup-nogoods.png">
+                                <span>购物车中还没有商品，赶紧选购吧！</span>
+                            </li>
                         @endif
-                    @endauth
+                    @endforeach
+                @endauth
             </ul>
         </div>
 

@@ -17,7 +17,7 @@ class LoginController extends Controller
     public function loginStore (LoginRequest $request)
     {
         //提交登录信息,admin模型继承了User模型所以可以使用attempt方法;
-        dd ($request->all ());
+//        dd ($request->all ());
         if (!\Auth::guard('admin')->attempt (['username'=>request ()->username,'password'=>request ()->password],request ()->remember)){
 
             return back ()->with ('danger','账号或者密码错误');

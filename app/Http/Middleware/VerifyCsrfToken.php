@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-            'pay/notify'
+            'pay/notify',
+            'home/user/qq_login'
     ];
 }

@@ -1253,7 +1253,7 @@
                     url: '{{route ('home.cart.store')}}',
                     data: {
                         _token: '{{csrf_token ()}}',
-                        ids: '{{$good->id}}',
+                        id: '{{$good->id}}',
                         spec: $('#yj_color').find('a.select span').text(),
                         color: $('#yj_spec').find('a.select').text(),
                         num: $('#yj_num').val()
@@ -1297,10 +1297,10 @@
             if ($('#yj_spec>.prdRight_1>.prdmod>a').hasClass('select') && $('#yj_color>.prdcol>a').hasClass('select') && $('#yj_num').val()) {
                 $.ajax({
                     type: 'post',
-                    url: '{{route ('home.order.buy_store')}}',
+                    url: '{{route ('home.cart.store')}}',
                     data: {
                         _token: '{{csrf_token ()}}',
-                        ids: '{{$good->id}}',
+                        id: '{{$good->id}}',
                         spec: $('#yj_color').find('a.select span').text(),
                         color: $('#yj_spec').find('a.select').text(),
                         num: $('#yj_num').val()
@@ -1331,7 +1331,7 @@
                         } else {
                             //否则store方法返回一个code=1,表示添加成功.
                             // layer.msg('添加成功')
-                            location.href='{{route ('home.order.index')}}'+'?ids='+'{{$good->id}}'
+                            location.href='{{route ('home.order.index')}}'+'?ids='+res.ids
                         }
                     },
                 })

@@ -387,11 +387,13 @@
         },'json')
     }
         function send() {
+
+
             $.post('/home/order',{_token:'{{csrf_token ()}}',
                 address_id:$('.jies_y_shouh_diz>ul').find('li.cur').attr('address_id'),
                 ids:'{{request ()->query ('ids')}}'},function (res) {
-
-                        location.href='{{route ('pay.pay_wechat')}}'
+                                // console.log(res)
+                        location.href='{{route ('home.order.my_order')}}'
             },'json')
         }
 </script>

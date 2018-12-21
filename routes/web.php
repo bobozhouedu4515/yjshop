@@ -26,6 +26,10 @@
         //配置项
         Route ::get ('config/edit', 'ConfigController@edit') -> name ('config.edit');
         Route ::post ('config/update', 'ConfigController@update') -> name ('config.update');
+        //订单管理
+        Route::get ('order','OrderController@index')->name ('order');
+        //发货
+        Route ::get ('order/shipping/{order}', 'OrderController@shipping') -> name ('order.shipping');
 
     });
     //后台不需要验证的路由
@@ -69,7 +73,8 @@
         Route ::post ('goods/find_spec', 'GoodsController@findSpec') -> name ('goods.find_spec');
         //购物车
         Route ::resource ('cart', 'CartController');
-        //购物车改变数值
+        //qq登录
+        Route::any ('user/qq_login','UserController@qqlogin')->name ('uer.qq_login');
 
     });
     //登录验证
@@ -78,6 +83,8 @@
         Route ::get ('user/user_info/{user}', 'UserController@userInfo') -> name ('user.user_info');
         //用户地址管理
         Route ::resource ('address', 'AddressController');
+        //用户收货
+        Route ::get ('user/eceipt/{order}', 'UserController@receipt') -> name ('user.receipt');
         //选择默认地址
         Route ::post ('address/select_adr', 'AddressController@select_adr') -> name ('address.select_adr');
         //立即购买

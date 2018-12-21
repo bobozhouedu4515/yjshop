@@ -55,14 +55,16 @@ class CartController extends Controller
     public function store(Request $request,Cart $cart)
     {
         //判断如果数据库中有相同的数据,那就数据累加
-        if ($carts=$cart->where('good_id',$request->ids)->where('spec',$request->spec)->where('color',$request->color)->first()){
+//        dd ($request -> all ());
+        if ($carts=$cart->where('user_id',auth ()->id())->where('good_id',$request->id)->where('spec',$request->spec)->where('color',$request->color)->first()){
             //改变本条数据的num值
             $carts->num=$carts->num+$request->num;
 
             //然后保存
             $carts->save();
+//            dd ($cart);
 
-            return ['code'=>1,'msg'=>'操作成功'];
+            return ['code'=>1,'msg'=>'操作成功','ids'=>$carts->id];
 
         }
         //否则,添加新数据;
@@ -78,7 +80,7 @@ class CartController extends Controller
         $cart->total=$good->price*$request->num;
         $cart -> save ();
 
-        return ['code'=>1,'msg'=>'操作成功'];
+        return ['code'=>1,'msg'=>'操作成功','ids'=>$cart->id];
 
     }
 
