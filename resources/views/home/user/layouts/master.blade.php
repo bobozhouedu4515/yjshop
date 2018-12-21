@@ -228,7 +228,7 @@
                     <div class="diy_top">
                         <ul>
                             <h3>订单中心</h3>
-                            <li><a href="{{route ('home.order.index')}}">我的订单</a></li>
+                            <li><a href="{{route ('home.order.my_order')}}">我的订单</a></li>
                             <li><a href="#">退换货单</a></li>
                             <li><a href="#">评价晒单</a></li>
                         </ul>

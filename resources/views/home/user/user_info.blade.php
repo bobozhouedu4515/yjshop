@@ -58,6 +58,7 @@
                             </select>
                             <label class="ml5 mr5">日</label>
                         </div>
+                        </div>
                     </div>
                 </div>
                 <div class="item_meic">

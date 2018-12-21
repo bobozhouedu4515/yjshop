@@ -55,7 +55,7 @@ class CartController extends Controller
     public function store(Request $request,Cart $cart)
     {
         //判断如果数据库中有相同的数据,那就数据累加
-        if ($carts=$cart->where('good_id',$request->id)->where('spec',$request->spec)->where('color',$request->color)->first()){
+        if ($carts=$cart->where('good_id',$request->ids)->where('spec',$request->spec)->where('color',$request->color)->first()){
             //改变本条数据的num值
             $carts->num=$carts->num+$request->num;
 

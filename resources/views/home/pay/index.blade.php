@@ -391,6 +391,7 @@
                 address_id:$('.jies_y_shouh_diz>ul').find('li.cur').attr('address_id'),
                 ids:'{{request ()->query ('ids')}}'},function (res) {
 
+                        location.href='{{route ('pay.pay_wechat')}}'
             },'json')
         }
 </script>

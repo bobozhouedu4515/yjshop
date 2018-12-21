@@ -68,36 +68,40 @@
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach($orders as $order)
                 <tr class="sep-row"><td colspan="4"></td></tr>
                 <tr class="tr-th">
+
                     <td colspan="5">
                         <span class="gap"></span>
-                        <span class="dealtime span_30" title="2015-1-19 10:30:42">2017-09-22 17:16:00</span>
-                        <span class="number span_30">订单号：<a href="#" target="_blank">62938990890</a></span>
-                        <span class="span_30"><a href="#">博力高手机配件旗舰店机配件</a></span>
+                        <span class="dealtime span_30" title="2015-1-19 10:30:42">{{$order->created_at}}</span>
+                        <span class="number span_30">订单号：<a href="#" target="_blank">{{$order->number}}</a></span>
                         <span class="wod_sc_delete_beij span_30"><a href="#" class="wod_dingd_delete"></a></span>
                     </td>
+
                 </tr>
                 <tr class="tr-bd">
                     <td rowspan="1">
+
                         <div class="goods-item">
                             <div class="p-img">
                                 <a target="_blank" href="#">
-                                    <img src="images/lieb_tupi1.jpg" alt="">
+                                    <img src="" alt="">
                                 </a>
                             </div>
                             <div class="p-msg">
                                 <div class="p-name">
-                                    <a target="_blank" href="#">红豆居家情侣睡衣男女春秋纯棉长袖条纹卡通家居服套装119 麻灰 170/92A</a>
+                                    <a target="_blank" href="#"></a>
                                     <p class="yiwanc_hui"><a href="#">申请售后</a></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="goods-number">x1</div>
+                        <div class="goods-number">x{{$order->total_num}}</div>
                     </td>
+
                     <td rowspan="1">
                         <div class="zhif_jine">
-                            <p>总额￥488.00</p>
+                            <p>总额￥{{$order->total_price}}</p>
                             <span>在线支付</span>
                         </div>
                     </td>
@@ -116,83 +120,12 @@
                     <td rowspan="1">
                         <div class="operate">
                             <a href="#" target="_blank" class="a-link">评价</a>丨<a href="#" target="_blank" class="a-link">晒单</a><br>
-                            <a href="#" target="_blank" class="btn-def">立即购买</a>
+                            <a href="{{route ('pay.pay_wechat',['id'=>$order->id])}}" target="_blank" class="btn-def">立即购买</a>
                         </div>
                     </td>
                 </tr>
                 </tbody>
-                <tbody>
-                <tr class="sep-row"><td colspan="4"></td></tr>
-                <tr class="tr-th">
-                    <td colspan="5">
-                        <span class="gap"></span>
-                        <span class="dealtime span_30" title="2015-1-19 10:30:42">2017-09-22 17:16:00</span>
-                        <span class="number span_30">订单号：<a href="#" target="_blank">62938990890</a></span>
-                        <span class="span_30"><a href="#">博力高手机配件旗舰店机配件</a></span>
-                        <span class="wod_sc_delete_beij span_30"><a href="#" class="wod_dingd_delete"></a></span>
-                    </td>
-                </tr>
-                <tr class="tr-bd">
-                    <td>
-                        <div class="goods-item">
-                            <div class="p-img">
-                                <a target="_blank" href="#">
-                                    <img src="images/lieb_tupi3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="p-msg">
-                                <div class="p-name">
-                                    <a target="_blank" href="#">红豆居家情侣睡衣男女春秋纯棉长袖条纹卡通家居服套装119 麻灰 170/92A</a>
-                                    <p class="yiwanc_hui"><a href="#">申请售后</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="goods-number">x1</div>
-                    </td>
-                    <td rowspan="2">
-                        <div class="zhif_jine">
-                            <p>总额￥488.00</p>
-                            <span>在线支付</span>
-                        </div>
-                    </td>
-                    <td rowspan="2">
-                        <div class="operate">
-                            <p class="yiwanc_hui">已完成</p>
-                            <a href="#" target="_blank" class="a-link">订单详情</a><br>
-                        </div>
-                    </td>
-                    <td rowspan="2">
-                        <div class="txt_ren">
-                            <span>艾丽西亚</span>
-                            <p class="ren_tub"></p>
-                        </div>
-                    </td>
-                    <td rowspan="2">
-                        <div class="operate">
-                            <a href="#" target="_blank" class="a-link">评价</a>丨<a href="#" target="_blank" class="a-link">晒单</a><br>
-                            <a href="#" target="_blank" class="btn-def">立即购买</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="tr-bd">
-                    <td rowspan="1">
-                        <div class="goods-item">
-                            <div class="p-img">
-                                <a target="_blank" href="#">
-                                    <img src="images/lieb_tupi2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="p-msg">
-                                <div class="p-name">
-                                    <a target="_blank" href="#">红豆居家情侣睡衣男女春秋纯棉长袖条纹卡通家居服套装119 麻灰 170/92A</a>
-                                    <p class="yiwanc_hui"><a href="#">申请售后</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="goods-number">x1</div>
-                    </td>
-                </tr>
-                </tbody>
+               @endforeach
             </table>
             <div class="gerzx_fany">
                 <a href="#" class="shangxy">上一页</a>

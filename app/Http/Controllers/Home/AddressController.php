@@ -6,7 +6,7 @@ use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AddressController extends Controller
+class AddressController extends CommonController
 {
     /**
      * Display a listing of the resource.

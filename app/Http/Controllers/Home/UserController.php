@@ -18,6 +18,7 @@
 
         public function registerStore ( User $user, Request $request )
         {
+
             //注册验证
             $this -> validate ($request, [
                 'name' => 'required',
@@ -65,6 +66,7 @@
 
         public function loginStore ( User $user, Request $request )
         {
+//            dd ($request->password);
             $this -> validate ($request, [
                 'email' => 'required|email',
                 'password' => 'required'

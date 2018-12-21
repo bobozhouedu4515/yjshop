@@ -299,5 +299,6 @@
     </div>
 </div>
 @stack('js')
+@include('layouts.message')
 </body>
 </html>

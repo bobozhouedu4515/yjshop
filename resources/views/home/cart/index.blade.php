@@ -566,35 +566,35 @@
                     }
                 }
             },
-            del(v,k){
-                this.carts.splice(k,1);
+            del(v, k) {
+                this.carts.splice(k, 1);
                 layer.msg('删除成功')
-                axios.delete('/home/cart/'+v.id).then(function (response) {
+                axios.delete('/home/cart/' + v.id).then(function (response) {
                 })
             },
-            my_order(){
-                {{--if (this.checkedBox.length<1){--}}
-                    {{--layer.msg('还没选你的宝贝呢!')--}}
-                    {{--return--}}
-                {{--}else{--}}
-                    {{--console.log(this.checkedBox)--}}
-                  {{--$.post('/home/order/?ids='+this.checkedBox,{--}}
-                      {{--'ide':dd,--}}
-                  {{--},function () {--}}
+            my_order() {
+                if (this.checkedBox.length < 1) {
+                    layer.msg('还没选你的宝贝呢!')
+                    return
+                } else {
+                    // console.log(this.checkedBox)
+                    $.post('/home/order/?ids=' + this.checkedBox, {_token:'{{csrf_token ()}}'}, function () {
 
-                  {{--},'json');--}}
-                      {{--.then(function (response) {--}}
-                      {{--location.href='{{route ('home.pay.index')}}'--}}
-                  {{--})--}}
-                {{--}--}}
-                //判断用户是否有勾选商品
-                if(this.checkedBox == 0){
-                    layer.msg('请选择要结算的商品');
-                    return;
+                    }, 'json');
+                    {{--.then(function (response) {--}}
+                    {{--location.href='{{route ('home.pay.index')}}'--}}
+                    {{--})--}}
+                    {{--}--}}
+                    //判断用户是否有勾选商品
+                    // if(this.checkedBox == 0){
+                    //     layer.msg('请选择要结算的商品');
+                    //     return;
+                    // }
+                    //跳转到订单页面
+
+                    {{--location.href = "{{route('home.order.index')}}?ids=" + this.checkedBox;--}}
                 }
-                //跳转到订单页面
-                location.href = "{{route('home.order.index')}}?ids=" + this.checkedBox;
-            }
+            },
         },
         computed: {
             totalPrice() {

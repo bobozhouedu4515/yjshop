@@ -168,7 +168,7 @@
                     {{--<a href="JavaScript:;" class="plus j-gACbtnA">+</a>--}}
                     {{--<a href="JavaScript:;" class="minus j-gACbtn ">-</a>--}}
                 </div>
-                <a href="JavaScript:;" class="btn-product btn-addcart">立即购买</a>
+                <a href="JavaScript:;" onclick="buy()"  class="btn-product btn-addcart">立即购买</a>
                 <a href="JavaScript:;" onclick="subdata()" class="btn-product disabled" id="yj_cart">加入购物车</a>
 
             </div>
@@ -1238,41 +1238,101 @@
                 inter = !inter;
             });
         })();
-
+        //选择规格
         function chooseId(obj) {
             //选中效果
             $(obj).addClass('select').parent('.prdcol').siblings('.prdcol').find('a').removeClass('select')
             $(obj).addClass('select').parent('.prdmod').siblings('.prdmod').find('a').removeClass('select')
-
         };
-
+        //提交数据到购物车
         function subdata() {
-
+            //如果规格都选定了以后,通过ajax把数据提交到cart的store方法,存入数据库
             if ($('#yj_spec>.prdRight_1>.prdmod>a').hasClass('select') && $('#yj_color>.prdcol>a').hasClass('select') && $('#yj_num').val()) {
                 $.ajax({
                     type: 'post',
                     url: '{{route ('home.cart.store')}}',
                     data: {
                         _token: '{{csrf_token ()}}',
-                        id: '{{$good->id}}',
+                        ids: '{{$good->id}}',
                         spec: $('#yj_color').find('a.select span').text(),
                         color: $('#yj_spec').find('a.select').text(),
                         num: $('#yj_num').val()
                     },
                     dataType: 'json',
+                    //成功的回调
                     success: function (res) {
-                        if (res.message.code == 0) {
-                            layer.msg('你还没登录')
-                            // delay(3);
-                            location.href = "{{route ('home.user.login',['from'=>url ()->full()])}}"
+                        // console.log(res)
+                        // 如果没有登录的话,handler方法会返回一个code=0 ,让用户选择是否登录然后,登录后调回商品详情页面!
+                        if (res.code == 0) {
+                            //使用sweetalert弹框!
+                            swal("你还没登录,点确定去登录", {
+                                buttons: {
+                                    cancel: "取消",
+                                    catch: {
+                                        text: "确定",
+                                        value: "catch",
+                                    },
+                                },
+                            }).then((value) => {
+                                switch (value) {
+                                    case "catch":
+                                        location.href = "{{route ('home.user.login',['from'=>url ()->full()])}}"
+                                        break;
+                                    default:
+                                }
+                            });
                         } else {
-
+                            //否则store方法返回一个code=1,表示添加成功.
                             layer.msg('添加成功')
                         }
-
                     },
-                    error: function (error) {
-                        layer.msg('你还没有登录')
+                })
+            } else {
+                layer.msg('请选择规格和购买数量')
+            }
+        }
+        //立即购买
+        function buy(){
+            //登录判断
+            if ($('#yj_spec>.prdRight_1>.prdmod>a').hasClass('select') && $('#yj_color>.prdcol>a').hasClass('select') && $('#yj_num').val()) {
+                $.ajax({
+                    type: 'post',
+                    url: '{{route ('home.order.buy_store')}}',
+                    data: {
+                        _token: '{{csrf_token ()}}',
+                        ids: '{{$good->id}}',
+                        spec: $('#yj_color').find('a.select span').text(),
+                        color: $('#yj_spec').find('a.select').text(),
+                        num: $('#yj_num').val()
+                    },
+                    dataType: 'json',
+                    //成功的回调
+                    success: function (res) {
+                                // console.log(res)
+                        // 如果没有登录的话,handler方法会返回一个code=0 ,让用户选择是否登录然后,登录后调回商品详情页面!
+                        if (res.code == 0) {
+                            //使用sweetalert弹框!
+                            swal("你还没登录,点确定去登录", {
+                                buttons: {
+                                    cancel: "取消",
+                                    catch: {
+                                        text: "确定",
+                                        value: "catch",
+                                    },
+                                },
+                            }).then((value) => {
+                                switch (value) {
+                                    case "catch":
+                                        location.href = "{{route ('home.user.login',['from'=>url ()->full()])}}"
+                                        break;
+                                    default:
+                                }
+                            });
+                        } else {
+                            //否则store方法返回一个code=1,表示添加成功.
+                            // layer.msg('添加成功')
+                            location.href='{{route ('home.order.index')}}'+'?ids='+'{{$good->id}}'
+                        }
                     },
                 })
             } else {
