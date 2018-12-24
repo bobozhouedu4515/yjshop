@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Spatie\Permission\Models\Role;
 
 class LoginMiddleware
 {
@@ -15,7 +16,9 @@ class LoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (!auth ('admin')->check ()){
+        $roles=Role::all ();
+//        dd ($roles);
+        if (!auth ('admin')->check ()||!auth ('admin')->user ()->hasAnyRole($roles)){
             return back ()->with ('danger','forbidden');
         }
         return $next($request);

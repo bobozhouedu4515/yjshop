@@ -58,13 +58,15 @@
     <div class="jdm-toolbar J-toolbar">
         <div class="jdm-toolbar-panels J-panel"></div>
         <div class="jdm-toolbar-tabs J-tab">
+
             <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-ger">
                 <i class="tab-ico"></i>
-                <em class="tab-text">个人中心</em>
+                <a href="{{route ('home.user.user_info',['id'=>auth ()->id ()])}}"><em class="tab-text">个人中心</em></a>
             </div>
+
             <div data-type="bar" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-cart">
                 <i class="tab-ico"></i>
-                <em class="tab-text">购物车</em>
+                <a href="{{route ('home.cart.index',[auth ()->id ()])}}"> <em class="tab-text">购物车</em></a>
             </div>
             <div data-type="bar" clstag="h|keycount|cebianlan_h_follow|btn"
                  class="J-trigger jdm-toolbar-tab jdm-tbar-tab-follow" data-name="follow" data-login="true">
@@ -93,24 +95,6 @@
 <div id="header">
     <div class="header-box">
         <h3 class="huany">WangID本地购物商城欢迎您的到来！</h3>
-        <ul class="header-left">
-            <li class="bj">
-                <a class="dib" href="#">贵阳市</a>
-                <i class="ci-leftll">
-                    <s class="jt">◇</s>
-                </i>
-                <div class="bj-1">
-                    <h3>热门城市：</h3>
-                    <a href="">北京</a><a href="">上海</a><a href="">天津</a><a href="">重庆</a><a href="">河北</a><a
-                        href="">山西</a><a href="">河南</a><a href="">辽宁</a><a href="">吉林</a><a href="">黑龙江</a><a
-                        href="">浙江</a><a href="">江苏</a><a href="">山东</a><a href="">安徽</a><a href="">内蒙古</a><a
-                        href="">湖北</a><a href="">湖南</a><a href="">广东</a><a href="">广西</a><a href="">江西</a><a
-                        href="">四川</a><a href="">海南</a><a href="">贵州</a><a href="">云南</a><a href="">西藏</a><a
-                        href="">陕西</a><a href="">甘肃</a><a href="">青海</a><a href="">宁夏</a><a href="">新疆</a><a
-                        href="">台湾</a><a href="">香港</a><a href="">澳门</a><a href="">海外</a><a href="qieh_cs.html">全部+</a>
-                </div>
-            </li>
-        </ul>
         <ul class="header-right">
             @auth()
                 <li class="denglu">Hi~<a class="red"
@@ -124,15 +108,11 @@
             @endauth
             <li class="denglu"><a class="ing_ps" href="#">我的收藏</a></li>
             <li class="shu"></li>
-            <li class="denglu"><a class="ing_ps ps1" href="#">申请入驻</a></li>
-            <li class="shu"></li>
+
             <li class="denglu"><a class="ing_ps ps2" href="#">客户服务</a></li>
             <li class="shu"></li>
             <li class="shouji bj">
-                <a class="ing_ps ps3" href="#">手机通城</a>
-                <i class="ci-right ">
-                    <s class="jt">◇</s>
-                </i>
+
                 <div class="shouji1">
                     <img src="{{asset ('org/shop')}}/images/mb_wangid.png" class="shouji4">
                     <div class="shouji2">
@@ -153,11 +133,14 @@
 </div>
 <!--搜索栏-->
 <div class="toub_beij">
+    <form action="{{route ('admin.search')}}" method="post">
+        @csrf
     <div class="logo"><a href="{{route ('home.index')}}"><img src="{{asset ('org/shop')}}/images/logo.png"></a></div>
     <div class="search">
-        <input type="text" value="家电一折抢" class="text" id="textt">
+        <input type="text" name="kw"  value="" class="text" id="textt">
         <button class="button">搜索</button>
     </div>
+    </form>
 
     <div class="right">
         <i class="gw-left"></i>
@@ -169,28 +152,45 @@
             @endauth
         </div>
 
-        <a href="{{route ('home.cart.index')}}">我的购物车</a>
+        <a href="{{route ('home.cart.index')}}" id="my_cart">我的购物车</a>
         <div class="dorpdown-layer">
+
             <ul>
                 @auth()
-                    @foreach($_carts as $cart)
-                        @if($cart->user_id==auth ()->id ())
+                    @if($_carts->where('user_id',auth ()->id ())->count())
+                        @foreach($_carts->where('user_id',auth ()->id())->all() as $cart)
 
-                                <li class="meiyou">
-                                    <img src="{{$cart->picture}}" alt="">
-                                    <a class="des"
-                                       href="{{route ('home.goods.show',['id'=>$cart->good_id])}}">{{$cart->description}}</a>
-                                </li>
-                            @else
                             <li class="meiyou">
-                                <img src="{{asset ('org/shop')}}/images/settleup-nogoods.png">
-                                <span>购物车中还没有商品，赶紧选购吧！</span>
+                                <img src="{{$cart->picture}}" alt="">
+                                <a class="des"
+                                   href="{{route ('home.goods.show',['id'=>$cart->good_id])}}">{{$cart->description}}</a>
                             </li>
-                        @endif
-                    @endforeach
+                        @endforeach
+                    @else
+                        <li class="meiyou">
+                            <img src="{{asset ('org/shop')}}/images/settleup-nogoods.png">
+                            <span>购物车中还没有商品，赶紧选购吧！</span>
+                        </li>
+                    @endif
+                @else
+                    <li class="meiyou">
+                        <img src="{{asset ('org/shop')}}/images/nologin.png">
+                        <a href="{{route ('home.user.login')}}"> <span>您还没登录,点击登录!</span></a>
+                    </li>
                 @endauth
             </ul>
         </div>
+        <script src="{{asset ('org/layer/layer.js')}}"></script>
+        {{--<script>--}}
+        {{--$('#my_cart').hover(function () {--}}
+        {{--layer.load(1, {--}}
+        {{--shade: [0.1, '#fff'] //0.1透明度的白色背景--}}
+        {{--});--}}
+        {{--location.replace('{{url ()->full()}}')--}}
+        {{--layer.closeAll()--}}
+        {{--return--}}
+        {{--})--}}
+        {{--</script>--}}
 
     </div>
     <div class="hotwords">

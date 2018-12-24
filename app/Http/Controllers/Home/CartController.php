@@ -24,11 +24,14 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $carts=Cart::where('user_id',auth ()->id ())->get();
 //        dd (json_encode ( $carts));
 //        $jsonCart=json_encode ( $carts);
+        if ($request->ajax ()){
+            return['carts'=>$carts];
+        }
         foreach ($carts as $v){
             $v['checked']=false;
         }

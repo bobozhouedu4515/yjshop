@@ -16,6 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         $product=Product::all ()->toArray ();
         //调用Product模型中的getTree方法,把数据装换成树状;
         $products=(new Product())->getTree($product);

@@ -27,12 +27,6 @@
     <link href="{{asset ('org/assets')}}/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="{{asset ('org/assets')}}/css/colors/blue.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     @stack('css')
 </head>
 
@@ -47,7 +41,6 @@
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </svg>
 </div>
-
 
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
@@ -64,41 +57,57 @@
                 <div class="profile-img"><img src="{{asset ('org/assets')}}/images/users/profile.png" alt="user"/></div>
                 <!-- User profile text-->
                 @auth('admin')
-                <div class="profile-text"><a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown"
-                                             role="button" aria-haspopup="true"
-                                             aria-expanded="true">{{auth ('admin')->user ()->username}}</a>
-                    <div class="dropdown-menu animated flipInY">
+                    <div class="profile-text"><a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown"
+                                                 role="button" aria-haspopup="true"
+                                                 aria-expanded="true">{{auth ('admin')->user ()->username}}</a>
+                        <div class="dropdown-menu animated flipInY">
 
-                        <a href="{{route ('admin.login.logout')}}" class="dropdown-item"><i class="fa fa-power-off"></i>
-                            退出</a></div>
-                </div>
-                    @endauth
+                            <a href="{{route ('admin.login.logout')}}" class="dropdown-item"><i
+                                    class="fa fa-power-off"></i>
+                                退出</a></div>
+                    </div>
+                @endauth
             </div>
             {{--侧边栏--}}
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li class="nav-small-cap">商城管理系统</li>
-                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                class="mdi mdi-gauge"></i><span class="hide-menu">商品管理 </span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{route ('admin.product.index')}}"> 商品分类</a></li>
-                            <li><a href="{{route ('admin.good.index')}}">商品详情</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                class="mdi mdi-laptop-windows"></i><span class="hide-menu">网站配置 </span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{route ('admin.config.edit',['name'=>'base'])}}">基础配置</a></li>
-                            <li><a href="{{route ('admin.config.edit',['name'=>'upload'])}}">上传配置</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                class="mdi mdi-laptop-windows"></i><span class="hide-menu">订单管理 </span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{route ('admin.order')}}">订单列表</a></li>
-                            <li><a href="">订单***</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-big-cap">商城管理系统</li>
+                    @if(auth ('admin')->user ()->hasanyrole('superAdmin|goods-admin'))
+                        <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-gauge"></i><span class="hide-menu">商品管理 </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{route ('admin.product.index')}}"> 商品分类</a></li>
+                                <li><a href="{{route ('admin.good.index')}}">商品详情</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if(auth ('admin')->user ()->hasanyrole('superAdmin|config-admin'))
+                        <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-laptop-windows"></i><span class="hide-menu">网站配置 </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{route ('admin.config.edit',['name'=>'base'])}}">基础配置</a></li>
+                                <li><a href="{{route ('admin.config.edit',['name'=>'upload'])}}">上传配置</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if(auth ('admin')->user ()->hasanyrole('superAdmin|order-admin'))
+                        <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-laptop-windows"></i><span class="hide-menu">订单管理 </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{route ('admin.order')}}">订单列表</a></li>
+
+                            </ul>
+                        </li>
+                    @endif
+                    @if(auth ('admin')->user ()->hasrole('superAdmin'))
+                        <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-laptop-windows"></i><span class="hide-menu">权限管理 </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{route ('admin.admin.index')}}">管理员列表</a></li>
+                                <li><a href="{{route ('admin.role.index')}}">角色列表</a></li>
+                            </ul>
+                        </li>
+                    @endif
 
                 </ul>
             </nav>

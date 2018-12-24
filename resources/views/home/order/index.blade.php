@@ -35,7 +35,7 @@
                             <a href="JavaScript:;" class="layui-btn  ">已支付</a>
                         @endif
 
-                        @if($order->status==3)
+                        @if($order->status>=3)
                             <a href="javaScript:;"
                                class="layui-btn ">已发货</a>
                         @else
@@ -44,9 +44,9 @@
 
                         @if($order->status==4)
                             <a href="javaScript:;"
-                               class="layui-btn layui-btn-normal">已经收货</a>
+                               class="layui-btn ">已经收货</a>
                         @else
-                            <a href="{{route ('home.user.receipt',$order)}}" class="layui-btn" >确认收货</a>
+                            <a href="{{route ('home.user.receipt',$order)}}" class="layui-btn layui-btn-normal" >确认收货</a>
                         @endif
 
 

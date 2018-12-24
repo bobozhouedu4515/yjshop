@@ -10,6 +10,7 @@
 
     class UserController extends CommonController
     {
+
         public function register ()
         {
             //注册页面
@@ -19,7 +20,6 @@
 
         public function registerStore ( User $user, Request $request )
         {
-
             //注册验证
             $this -> validate ($request, [
                 'name' => 'required',
@@ -139,11 +139,16 @@
         }
 
         //个人中心
-        public function userInfo ()
+        public function userInfo (User $user,Request $request)
         {
-            $id = \request () -> query ('id');
-            $type = \request () -> query ('type') ?: 'info';
-            return view ('home.user.user_' . $type);
+            //路由参数中的id
+            $id =$user->id;
+            if (auth ()->id ()==$id){
+                $type = \request () -> query ('type') ?: 'info';
+                return view ('home.user.user_' . $type);
+            }
+            return back ()->with ('danger','非法操作');
+
         }
         //确认收货
         public function receipt (Order $order)
@@ -154,6 +159,14 @@
             }else{
                 return back ()->with ('danger','非法操作');
             }
+
+        }
+        //个人详细资料
+        public function update (User $user,Request $request)
+        {
+            $user -> update ($request -> all ());
+            return back () -> with ('success', '操作成功');
+
 
         }
 

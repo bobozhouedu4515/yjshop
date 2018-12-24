@@ -28,14 +28,14 @@
                 <td>{{$order->total_num}}</td>
                 <td>
                     <div class="layui-btn-group">
-                        @if($order->status==1)
+                        @if($order->status<=1)
                             <a href="JavaScript:;"
                                class="layui-btn layui-btn-normal">未支付</a>
                         @else
                             <a href="JavaScript:;" class="layui-btn  ">已支付</a>
                         @endif
 
-                        @if($order->status==4)
+                        @if($order->status>=4)
                             <a href="JavaScript:;"
                                class="layui-btn ">已发货</a>
                         @else

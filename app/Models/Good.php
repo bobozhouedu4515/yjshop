@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Houdunwang\Arr\Arr;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Good extends Model
 {
+    use Searchable;
     protected $guarded=['file','specs','_token'];
     protected $casts=[
         'pictures'=>'array'
@@ -50,4 +52,6 @@ class Good extends Model
     {
         return $this -> belongsTo (Product::class);
     }
+
+
 }

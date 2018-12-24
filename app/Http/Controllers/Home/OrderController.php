@@ -100,10 +100,6 @@
         {
             //加载个人中心我的订单
             $orders = Order ::where ('user_id', auth () -> id ()) -> get ();
-//            $address=Address::where('id',$orders->address_id)->first();
-//            dd ($address);
-
-
             return view ('home.order.index', compact ('orders'));
         }
 

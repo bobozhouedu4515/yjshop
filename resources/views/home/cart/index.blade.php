@@ -23,43 +23,17 @@
     <div id="header">
         <div class="header-box">
             <h3 class="huany">WangID本地购物商城欢迎您的到来！</h3>
-            <ul class="header-left">
-                <li class="bj">
-                    <a class="dib" href="#">贵阳市</a>
-                    <i class="ci-leftll">
-                        <s class="jt">◇</s>
-                    </i>
-                    <div class="bj-1">
-                        <h3>热门城市：</h3>
-                        <a href="">北京</a><a href="">上海</a><a href="">天津</a><a href="">重庆</a><a href="">河北</a><a
-                            href="">山西</a><a href="">河南</a><a href="">辽宁</a><a href="">吉林</a><a href="">黑龙江</a><a
-                            href="">浙江</a><a href="">江苏</a><a href="">山东</a><a href="">安徽</a><a href="">内蒙古</a><a
-                            href="">湖北</a><a href="">湖南</a><a href="">广东</a><a href="">广西</a><a href="">江西</a><a
-                            href="">四川</a><a href="">海南</a><a href="">贵州</a><a href="">云南</a><a href="">西藏</a><a
-                            href="">陕西</a><a href="">甘肃</a><a href="">青海</a><a href="">宁夏</a><a href="">新疆</a><a
-                            href="">台湾</a><a href="">香港</a><a href="">澳门</a><a href="">海外</a><a
-                            href="qieh_cs.html">全部+</a>
-                    </div>
-                </li>
-            </ul>
+
             <ul class="header-right">
                 <li class="denglu dengl_hou">
                     <div>
-                        <a class="red" href="JavaScript:;">{{auth ()->user ()->name}}</a>
-                        <i class="icon_plus_nickname"></i>
-                        <i class="ci-leftll">
-                            <s class="jt">◇</s>
-                        </i>
+                        <a class="red"
+                           href="{{route ('home.user.user_info',auth ()->user ())}}">{{auth ()->user ()->name}}</a>
+                        <a href="{{route ('home.user.logout')}}">退出</a>
                     </div>
                     <div class="dengl_hou_xial_k">
-                        <div class="zuid_xiao_toux">
-                            <a href="#"><img src="{{asset ('org/shop')}}/images/toux.png"></a>
-                        </div>
-                        <div class="huiy_dengj">
-                            <a class="tuic_" href="{{route ('home.user.logout')}}">退出</a>
-                        </div>
                         <div class="toub_zil_daoh">
-                            <a href="#">待处理订单</a>
+                            <a href="{{route ('home.order.my_order')}}">待处理订单</a>
                             <a href="#">我的收藏</a>
                             <a href="#">个人资料</a>
                         </div>
@@ -68,30 +42,9 @@
                 <li class="shu"></li>
                 <li class="denglu"><a class="ing_ps" href="#">我的收藏</a></li>
                 <li class="shu"></li>
-                <li class="denglu"><a class="ing_ps ps1" href="#">申请入驻</a></li>
-                <li class="shu"></li>
                 <li class="denglu"><a class="ing_ps ps2" href="#">客户服务</a></li>
                 <li class="shu"></li>
-                <li class="shouji bj">
-                    <a class="ing_ps ps3" href="#">手机通城</a>
-                    <i class="ci-right ">
-                        <s class="jt">◇</s>
-                    </i>
-                    <div class="shouji1">
-                        <img src="{{asset ('org/shop')}}/images/mb_wangid.png" class="shouji4">
-                        <div class="shouji2">
-                            <p>通城客户端</p>
-                            <p class="red">首次下单满79元，送79元</p>
-                        </div>
-                        <div class="yi">
-                            <img src="{{asset ('org/shop')}}/images/mb_wangid.png" class="shouji4">
-                            <div class="er">
-                                <p>通城微信公众号</p>
-                                <p class="red">关注通城公众号的积分，换大礼</p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -104,19 +57,10 @@
             </div>
         </div>
     </div>
-    <div class="container">
-
-        <div class="cart-login-tip fl" id="idnotlogin" act-not-login-info="" style="display: none;">
-            您还没有登录！登录后购物车的商品将保存到您账号中。
-            <a class="cart-login-btn" href="{{route ('home.user.login')}}">
-                立即登录
-            </a>
-        </div>
-    </div>
 
     <div class="beij_center">
         <div class="cart-main-header clearfix">
-            <div class="cart-col-1">
+            <div class="cart-col-1" style="margin-left: 15px; margin-top: 5px">
                 <input type="checkbox" v-model="checked" @click="allselect()" v-bind:value="true">
             </div>
             <div class="cart-col-2">全选</div><!-- $page.site 主站 团购 抢购   style -->
@@ -132,7 +76,12 @@
         </div>
     </div>
 
-
+    <div style="height: 100px; width: 1200px; margin: 0 auto" v-if="carts.length==0">
+        <div style="background:white; height: 200px;width: 400px;margin: 0 auto">
+            <img style="margin: 20px" src="{{asset ('org/shop/images/settleup-nogoods.png')}}" alt="">
+            <a href="{{route ('home.index')}}" style="margin-bottom: 20px;font-size: 24px">购物车还是空的呢</a>
+        </div>
+    </div>
     <div class="container" v-for="(v,k) in carts">
 
         <div class="cart-shop-header">
@@ -141,9 +90,9 @@
             </div>
             <div class="cart-col-2"><span class="gouw_c_dianp">罗莱LOVO自营官方旗舰店</span></div>
         </div>
-        <div class="cart-shop-goods dangq_honh">
+        <div class="cart-shop-goods dangq_honh" style="height: 100px">
             <div class="cart-shop-good">
-                <div class="cart-col-1">
+                <div class="cart-col-1" style="margin-top: 30px;margin-left: 10px">
                     <input type="checkbox" v-model="v.checked" :value="true" @click="select(v)">
                 </div>
                 <div class="cart-col-2" style="height: 82px;">
@@ -182,12 +131,10 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-    <div class="jies_beij">
+    <div class="jies_beij" style="width:1200px;!important; margin: 20px auto" v-if="carts.length>0">
         <div class="beij_center over_dis">
-            <div class="cart-col-1 cart_jies">
+            <div class="cart-col-1 cart_jies" style="margin-top: 24px;padding-left: 10px">
                 <input type="checkbox" v-model="checked" @click="allselect()" v-bind:value="true">
             </div>
             <div class="qianm_shanc_yvf">
@@ -203,172 +150,7 @@
 
 </div>
 
-<div class="beij_center">
-    <div class="investment_f">
-        <div class="investment_title">
-            <div class="ds_dg on_d">为您推荐</div>
-            <div class="ds_dg">最近预览</div>
-        </div>
-        <div class="investment_con">
-            <!---->
-            <div class="picScroll_left_s" style="display: block;">
-                <div class="hd">
-                    <a class="next next_you"></a>
-                    <ul></ul>
-                    <a class="prev prev_zuo"></a>
-                </div>
-                <div class="bd">
-                    <ul class="picList">
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/lieb_tupi3.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/shangq_3.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/big_3.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/xiangqtu_1.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/lieb_tupi3.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/big_3.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/lieb_tupi1.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/lieb_tupi2.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="pic"><a href="#" target="_blank"><img
-                                        src="{{asset ('org/shop')}}/images/lieb_tupi3.jpg"/></a></div>
-                            <div class="title">
-                                <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                <a href="#" class="cart_scroll_btn">加入购物车</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!---->
-            <div class="picScroll_left_s" style="display: none;">
-                <div class="picScroll_left_s_dsl">
-                    <div class="dfgc">
-                        <ul class="picList">
-                            <li>
-                                <div class="pic"><a href="#" target="_blank"><img
-                                            src="{{asset ('org/shop')}}/images/lieb_tupi3.jpg"/></a></div>
-                                <div class="title">
-                                    <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                    <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                    <a href="#" class="cart_scroll_btn">加入购物车</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pic"><a href="#" target="_blank"><img
-                                            src="{{asset ('org/shop')}}/images/big_3.jpg"/></a></div>
-                                <div class="title">
-                                    <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                    <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                    <a href="#" class="cart_scroll_btn">加入购物车</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pic"><a href="#" target="_blank"><img
-                                            src="{{asset ('org/shop')}}/images/lieb_tupi1.jpg"/></a></div>
-                                <div class="title">
-                                    <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                    <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                    <a href="#" class="cart_scroll_btn">加入购物车</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pic"><a href="#" target="_blank"><img
-                                            src="{{asset ('org/shop')}}/images/big_3.jpg"/></a></div>
-                                <div class="title">
-                                    <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                    <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                    <a href="#" class="cart_scroll_btn">加入购物车</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pic"><a href="#" target="_blank"><img
-                                            src="{{asset ('org/shop')}}/images/shangq_3.jpg"></a></div>
-                                <div class="title">
-                                    <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                    <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                    <a href="#" class="cart_scroll_btn">加入购物车</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pic"><a href="#" target="_blank"><img
-                                            src="{{asset ('org/shop')}}/images/shangq_3.jpg"></a></div>
-                                <div class="title">
-                                    <a href="#" target="_blank">喜芬妮春秋桑蚕丝长袖性感蕾丝花边女式睡衣家居服二</a>
-                                    <div class="jiage_gouw"><span>¥2499.00</span></div>
-                                    <a href="#" class="cart_scroll_btn">加入购物车</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <script type="text/javascript">
@@ -499,7 +281,7 @@
             checkedBox: [],
             allchecked: false,
             checked: false,
-            total:this.totalprice
+            total: this.totalprice
 
         },
         methods: {
@@ -578,7 +360,7 @@
                     return
                 } else {
                     // 判断用户是否有勾选商品
-                    if(this.checkedBox == 0){
+                    if (this.checkedBox == 0) {
                         layer.msg('请选择要结算的商品');
                         return;
                     }

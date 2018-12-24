@@ -13,7 +13,8 @@
         "fideloper/proxy": "^4.0",
         "houdunwang/arr": "^2.0",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "spatie/laravel-permission": "^2.29"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -21,7 +22,9 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.0",
+        "algolia/algoliasearch-client-php": "^1.2.7",
+        "laravel/scout": "^5.0"
     },
     "config": {
         "optimize-autoloader": true,

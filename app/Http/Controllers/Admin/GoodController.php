@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Home\CommonController;
 use App\Http\Requests\GoodRequest;
 use App\Models\Good;
 use App\Models\Product;
@@ -10,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-class GoodController extends Controller
+class GoodController extends CommonController
 {
     /**
      * Display a listing of the resource.
@@ -151,6 +152,16 @@ class GoodController extends Controller
         $good->delete();
 
         return redirect ()->route ('admin.good.index')->with ('success','操作成功');
+
+    }
+
+    public function search (Request $request)
+    {
+        $kw=$request->kw;
+     $goods=Good::search ($kw)->get ();
+//        dd ($goods);
+
+        return view ('home.goods.search_res', compact ('goods','kw'));
 
     }
 }

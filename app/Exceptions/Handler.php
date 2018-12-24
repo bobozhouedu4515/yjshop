@@ -52,6 +52,7 @@ class Handler extends ExceptionHandler
 
     protected function unauthenticated($request, AuthenticationException $exception)
     {
+        //如果是ajax请求name返回200状态码,并带上提示信息
         return $request->expectsJson()
             ? response()->json([ 'code'=>0,'msg'=>'没有登录'], 200)
             : redirect()->guest(route('home.user.login'));
