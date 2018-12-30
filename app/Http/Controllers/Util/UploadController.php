@@ -10,6 +10,8 @@ class UploadController extends Controller
 {
     public function upload ( Request $request )
     {
+
+//        dd (1);
         //获取提交数据中的file,并返回一个对象
         $file = $request -> file ('file');
 

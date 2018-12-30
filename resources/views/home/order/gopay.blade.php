@@ -39,7 +39,7 @@
         <ul class="header-right">
             <li class="denglu dengl_hou">
                 <div>
-                    <a class="red" href="dengl.html">Hi~山的那边是海</a>
+                    <a class="red" href="dengl.html">{{auth ()->user ()->name}}</a>
                     <i class="icon_plus_nickname"></i>
                     <i class="ci-leftll">
                         <s class="jt">◇</s>
@@ -120,7 +120,7 @@
         <div class="step-tit">
             <h3>收货人信息</h3>
             <div class="extra_r">
-                <a href="#" class="ftx-05 J_consignee_global">新增收货地址</a>
+                <a href="{{route ('home.address.create')}}" class="ftx-05 J_consignee_global">新增收货地址</a>
             </div>
         </div>
         <div class="jies_y_shouh_diz shiq_1">
@@ -139,10 +139,7 @@
                 </li>
                 @endforeach
             </ul>
-            <div class="addr-switch cur_e">
-                <p><span>更多地址</span><b></b></p>
-                <p class="jiant_xiangs"><span>收起更多</span><b></b></p>
-            </div>
+
         </div>
         <div class="jies_y_shouh_diz shiq_2">
             <ul>

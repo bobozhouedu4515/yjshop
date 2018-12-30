@@ -5,16 +5,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>WangID通城——个人注册</title>
+    <title>{{hd_config ('base.title')}}--个人注册</title>
     <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/css/index.css">
     <link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/css/ziy.css">
-    <!--  <script src="js/jquery-1.11.3.min.js" ></script>
-    <script src="js/index.js" ></script>  -->
-    <!-- <script type="text/javascript" src="js/jquery1.42.min.js"></script> -->
-    <!--
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-     <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.source.js"></script> -->
 
 </head>
 <body>
@@ -32,8 +26,6 @@
         <div class="ger_zhuc_biaot">
             <ul>
                 <li class="ger_border_color"><a href="zhuc.html">个人注册</a></li>
-                <i>丨</i>
-                <li><a href="shenq_ruz.html">申请入驻</a></li>
                 <p>我已经注册，现在就<a class="ftx-05 ml10" href="{{route ('home.user.login')}}">登录</a></p>
             </ul>
         </div>
@@ -45,15 +37,12 @@
                 	<label for="J_Name">用户名：</label>
               	</span>
                     <input class="i-text" name="name" type="text">
-                    <!--备注————display使用 inline-block-->
                 </div>
                 <div class="reg-items">
               	<span class="reg-label">
                 	<label for="J_Name">设置密码：</label>
               	</span>
                     <input class="i-text" type="text" name="password">
-                    <!--备注————display使用 inline-block-->
-
                 </div>
                 <div class="reg-items">
               	<span class="reg-label">
@@ -63,11 +52,11 @@
                     <!--备注————display使用 inline-block-->
 
                 </div>
-                <div class="reg-items">
+                <div class="reg-items" id="reg_info">
               	<span class="reg-label">
-                	<label for="J_Name">邮箱地址：</label>
+                	<label for="J_Name">登录账号：</label>
               	</span>
-                    <input class="i-text" type="email" name="email" value="13934873532@163.com" id="email">
+                    <input class="i-text" type="text" name="account" onchange="is_exist()" value="" id="email">
                     <!--备注————display使用 inline-block-->
                     <div class="msg-box">
                         <div class="msg-weak err-tips" style="display:none;">
@@ -81,9 +70,8 @@
               	</span>
                     <input class="i-text i-short" name="code" type="text">
                     <div class="check check-border" style="position:relative;left:0">
-                        <a class="check-phone" style="padding:11px 10px 14px 10px;*line-height:60px;" onclick="send()">获取验证码</a>
+                        <button id="send_btn" type="button"  style="height:40px" onclick="send(this)" >获取验证码</button>
                     </div>
-                    <!--备注————display使用 inline-block-->
                     <div class="msg-box">
                         <div class="msg-weak err-tips" style="display:none;">
                             <div>请输入短信验证码</div>
@@ -94,12 +82,6 @@
               	<span class="reg-label">
                 	<label for="J_Name"> </label>
               	</span>
-                    <div class="dag_biaod">
-                        <input type="checkbox" value="english">
-                        阅读并同意
-                        <a href="#" class="ftx-05 ml10">《wangdi通城用户注册协议》</a>
-                        <a href="#" class="ftx-05 ml10">《隐私协议》</a>
-                    </div>
                 </div>
                 <div class="reg-items">
               	<span class="reg-label">
@@ -119,8 +101,8 @@
 
 <div class="jianj_dib jianj_dib_1">
     <div class="beia_hao">
-        <p>京ICP备：14012449号 黔ICP证：B2-20140009号 </p>
-        <p class="gonga_bei">京公网安备：11010602030054号</p>
+        <p>{{hd_config ('base.icp')}} </p>
+
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
@@ -130,15 +112,61 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    function send() {
+    var status=0;
+    function is_exist() {
+        var data = $('#email').val();
+        $.post('/home/user/is_exist',{data: data},function (res) {
+            if (res.code==0){
+                status=1;
+                console.log(status)
+                if (status==1){
+                    // console.log(11)
+                    //验证 如果状态码==1,说明账号存在,改变button的属性为disabled
+                    $('#send_btn').attr('disabled',true);
+                    $('#reg_info').append('<p style="color: red;">×账号存在</p>');
+
+                }
+            }
+        });
+    }
+
+    function send(obj) {
+
+        // alert(1);
+        return;
+        //抓取元素的value,初步验证数据格式
         var data = document.getElementById('email').value;
-        // console.log(data)
+        console.log(data);
+        var preg_email=/^\w+@\w+\.\w+$/;
+        var  preg_pho=/[0-9]{11}/;
+        if (!preg_email.test(data)&&!preg_pho.test(data)) {
+            swal({
+                text: '邮箱或者手机格式不正确',
+                icon: 'success',
+                button: false
+            });
+            return
+        }
+        //异步请求验证码
         $.ajax({
             url: '{{route ('util.code.send')}}',
             type: 'post',
-            data: {email: data},
+            data: {account: data},
             dataType: 'json',
             success: function (res) {
+                // $(obj).addClass('disabled');
+                var time=60;
+                var timer=setInterval(function () {
+                    time--;
+                    if (time==0){
+                        $(obj).html('发送验证码');
+                        clearInterval(timer);
+                        // $(obj).html('发送验证码')
+                        return;
+                    }
+                    $(obj).html(time+'s后重新发送')
+                },1000)
+
                 if (res.code==1) {
                     swal({
                         text:'发送成功',

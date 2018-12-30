@@ -4,9 +4,11 @@
 
     use App\Models\Order;
     use App\User;
+    use Illuminate\Cache\MemcachedStore;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
     use function PHPSTORM_META\type;
+    require_once public_path ().'/'."org/Connect2.1/API/qqConnectAPI.php";
 
     class UserController extends CommonController
     {
@@ -14,19 +16,26 @@
         public function register ()
         {
             //注册页面
-            return view ('home.user.register');
+            \Cache::add('num','60',1);
+            $num=\Cache::get ('num');
+            \Cache::decrement ('num',1);
+            return view ('home.user.register',compact ('num'));
 
         }
 
         public function registerStore ( User $user, Request $request )
         {
+            $preg_email = '/^\w+@\w+\.\w+$/';
             //注册验证
             $this -> validate ($request, [
                 'name' => 'required',
-                'email' => 'email|required',
                 'code' => [ 'required',
                     function ( $attribute, $value, $fail ) {
-                        if (session ('code') != $value) {
+
+//               $code= \Cache::get ('code');
+                        $code=session ()->get ('code');
+//                        dd ($code);
+                        if ($code!=$value) {
                             $fail('验证码不正确');
                         }
                     }
@@ -41,11 +50,11 @@
                             $fail('密码太简单');
                         }
                     }
-                ]
+                ],
+                'account' => 'required'
             ], [
                 'name.required' => '昵称不能为空',
-                'email.required' => '邮箱不能为空',
-                'email.email' => '请输入正确邮箱',
+                'account.required' => '邮箱不能为空',
                 'password.required' => '请输入密码',
                 'password.confirmed' => '两次输入密码不一致',
                 'code.required' => '验证码不能为空'
@@ -54,7 +63,13 @@
             $data = \request () -> all ();
             $user -> name = $data[ 'name' ];
             $user -> password = bcrypt ($data[ 'password' ]);
-            $user -> email = $data[ 'email' ];
+            if (preg_match ($preg_email, $data[ 'account' ])){
+                $user -> email = $data[ 'account' ];
+                $user->email_verified_at=now ();
+            }else{
+                $user->mobile=$data[ 'account' ];
+                $user -> mobile_verified_at = now ();
+            }
             $user -> save ();
             return back () -> with ('success', '操作成功');
         }
@@ -67,22 +82,33 @@
 
         public function loginStore ( User $user, Request $request )
         {
-//            dd ($request->password);
+            $preg_email = '/^\w+@\w+\.\w+$/';
             $this -> validate ($request, [
-                'email' => 'required|email',
+                'account' => 'required',
                 'password' => 'required'
             ], [
-                'email.required' => '密码不能为空',
-                'email.email' => '邮箱格式不正确',
+                'account.required' => '账号不能为空',
                 'password.required' => '密码不能为空',
             ]);
 
             //登录验证
-            $data = \request () -> only ('email', 'password');
+//            dd (11);
+            $data = \request () -> only ('account', 'password');
             //使用web守卫验证用户登录,并查看是否点了自动登录
-            if (!auth () -> attempt ($data, \request () -> only ('remember'))) {
-                return back () -> with ('danger', '密码或者邮箱不正确');
+//            dd ($data);
+            if (preg_match ($preg_email,$data['account'])){
+
+                if (!auth () -> attempt (['email'=>$data['account'],'password'=>$data['password']], \request () -> only ('remember'))) {
+                    return back () -> with ('danger', '密码或者账号不正确');
+                }
+            }else{
+//                dd (1);
+                if (!auth () -> attempt (['mobile'=>$data['account'],'password'=>$data['password']], \request () -> only ('remember'))) {
+//                    dd (1);
+                    return back () -> with ('danger', '密码或者账号不正确');
+                }
             }
+
             //判断是否是from属性,有的话进行跳转
             if ($request -> query ('from')) {
                 return redirect ($request -> query ('from')) -> with ('success', '登录成功');
@@ -170,9 +196,56 @@
 
         }
 
-        public function qqlogin ()
+        public function qqConnect ()
         {
+            $qc = new \QC();
+            $qc -> qq_login ();
+
 
         }
+
+        public function qqlogin (Request $request)
+        {
+
+            $qc=new \QC();
+            $token=$qc->qq_callback ();
+            $openId=$qc->get_openid ();
+            $qc=new \QC($token,$openId);
+          $qquser= $qc->get_user_info();
+//            dd ($qquser);
+          $user=User::where('open_id',$openId)->first();
+          if (!$user){
+              $user=new User();
+              $user->open_id=$openId;
+              $user->username=$qquser['nickname'];
+              $user->icon=$qquser['figureurl_1'];
+              $user->name=$qquser['nickname'];
+              $user->password='';
+              $user->save ();
+          }
+          auth ()->login ($user);
+            return redirect ('/');
+
+
+        }
+
+        public function isExist (Request $request)
+        {
+            $preg_email='/^\w+@\w+\.\w+$/';
+            $preg_pho='/[0-9]{11}/';
+            if (preg_match ($preg_email,$request->data)){
+                $user= User::where('email',$request->data)->first();
+                if ($user){
+                    return ['code'=>0,'msg'=>'用户已经存在'];
+                }
+            }else{
+                $user= User::where('mobile',$request->data)->first();
+                if ($user){
+                    return ['code'=>0,'msg'=>'用户已经存在'];
+                }
+            }
+        }
+
+
 
     }

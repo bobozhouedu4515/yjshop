@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Comment;
 use App\Models\Good;
 use App\Models\Product;
 use App\Models\Specification;
@@ -24,7 +25,10 @@ class GoodsController extends CommonController
     public function show ()
     {
         $id = \request () -> query ('id');
+        $comments=Comment::with ('user')->where('good_id',$id)->get();
+//        dd ($id);
         $good=Good::where('id',$id)->first();
+//        dd ($good);
         $specs=$good->specification;
 //        dd ($specs->toArray());
         $size=[];
@@ -39,7 +43,7 @@ class GoodsController extends CommonController
         $onlySize=array_unique ($size);
         $onlyColor=array_unique ($color);
 //        dd ($onlySize);
-        return view ('home.goods.show',compact ('good','specs','onlySize','onlyColor'));
+        return view ('home.goods.show',compact ('good','specs','onlySize','onlyColor','comments'));
     }
 
     public function findSpec ()

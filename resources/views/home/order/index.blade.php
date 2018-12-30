@@ -49,7 +49,7 @@
                             <a href="{{route ('home.user.receipt',$order)}}" class="layui-btn layui-btn-normal" >确认收货</a>
                         @endif
 
-
+                            <a href="{{route ('home.comment.create',['id'=>$order->id])}}" class="layui-btn layui-btn-normal" >去评价</a>
                         <a href="JavaScript:;" onclick="del()">
                             <button class="layui-btn layui-btn-danger">删除</button>
                         </a>

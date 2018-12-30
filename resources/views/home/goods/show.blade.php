@@ -158,7 +158,7 @@
                     <input type="number" id="yj_num" min="0" max="{{$good->total}}" style="width: 48px; height: 40px;">
 
                 </div>
-                <a href="JavaScript:;" onclick="buy()"  class="btn-product btn-addcart">立即购买</a>
+                <a href="JavaScript:;" onclick="buy()" class="btn-product btn-addcart">立即购买</a>
                 <a href="JavaScript:;" onclick="subdata()" class="btn-product disabled" id="yj_cart">加入购物车</a>
 
             </div>
@@ -425,196 +425,7 @@
                             <!---->
                         </div>
                         <!---->
-                        <div class="shouh_baoz_2">
-                            <div class="mt"><h3>商品评价</h3></div>
-                            <div class="mc">
-                                <div class="comment-info J-comment-info">
-                                    <div class="comment-percent">
-                                        <strong class="percent-tit">好评度</strong>
-                                        <div class="percent-con">99<span>%</span></div>
-                                    </div>
-                                </div>
-                                <!---->
-                                <div class="ETab">
-                                    <div class="tab-main small">
-                                        <ol class="filter-list">
-                                            <li class="current_xq" data-num="4900"><a href="#">全部评价<em>(4900+)</em></a>
-                                            </li>
-                                            <li><a href="#">晒图<em>(60)</em></a></li>
-                                            <li class="J-addComment"><a href="#">追评<em>(8)</em></a></li>
-                                            <li><a href="#">好评<em>(4900+)</em></a></li>
-                                            <li>
-                                                <a href="#">中评<em>(40+)</em></a></li>
-                                            <li><a href="#">差评<em>(20+)</em></a></li>
-                                            <li class="comm-curr-sku"><span><input type="checkbox"></span><label>只看当前商品评价</label>
-                                            </li>
-                                        </ol>
-                                        <div class="_extra_a">
-                                            <div class="sort-select">
-                                                <div class="current_tc"><span
-                                                        class="J-current-sortType">推荐排序</span><i></i></div>
-                                                <div class="others">
-                                                    <div class="curr"><span
-                                                            class="J-current-sortType">推荐排序</span><i></i></div>
-                                                    <ol>
-                                                        <li class="J-sortType-item">推荐排序</li>
-                                                        <li class="J-sortType-item">时间排序</li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                            <div class="tab_con">
-                                <ol class="replyListWrap">
-                                    <li class="oh_de">
-                                        <div class="reply-left">
-										<span class="detail-star bgiprd">
-											<b style="width:100%" class="bgiprd"></b>
-										</span>
-                                            <p>收货后1天评论</p>
-                                            <p><a target="_blank" href="//review.gome.com.cn/P136937461.html">2017-09-22
-                                                    12:44</a></p>
-                                            <p><span>白色 M码</span></p>
-                                        </div>
-                                        <div class="reply-center">
-                                            <p>正品行货，很棒</p>
-                                            <div id="content">
-                                                <p>
-                                                    <a rel="example_group"
-                                                       href="{{asset ('org/shop')}}/images/example/9_b.jpg"
-                                                       title="Lorem ipsum dolor sit amet"><img alt=""
-                                                                                               src="{{asset ('org/shop')}}/images/example/9_s.jpg"/></a>
-                                                    <a rel="example_group"
-                                                       href="{{asset ('org/shop')}}/images/example/10_b.jpg"
-                                                       title=""><img alt=""
-                                                                     src="{{asset ('org/shop')}}/images/example/10_s.jpg"/></a>
-                                                    <a rel="example_group"
-                                                       href="{{asset ('org/shop')}}/images/example/11_b.jpg"
-                                                       title=""><img alt=""
-                                                                     src="{{asset ('org/shop')}}/images/example/11_s.jpg"/></a>
-                                                    <a rel="example_group"
-                                                       href="{{asset ('org/shop')}}/images/example/12_b.jpg"
-                                                       title=""><img class="last" alt=""
-                                                                     src="{{asset ('org/shop')}}/images/example/12_s.jpg"/></a>
-                                                </p>
 
-                                            </div>
-                                        </div>
-                                        <div class="reply-right">
-                                            <div class="reply_avatar">
-                                                <img src="{{asset ('org/shop')}}/images/7_170312181624_2.jpg">
-                                                <span class="reply_avatar_userName">祢夏了夏天</span>
-                                            </div>
-                                            <p class="profileGrade"><span class="viplevel">V2会员</span><span
-                                                    class="area">石家庄市</span></p>
-                                        </div>
-                                    </li>
-
-
-
-                                </ol>
-                                <div class="com-table-footer">
-                                    <div class="ui-page-wrap">
-                                        <div class="ui-page">
-                                            <a rel="1" class="ui-page-curr" href="#">1</a>
-                                            <a rel="2" href="#">2</a>
-                                            <a rel="3" href="#">3</a>
-                                            <a rel="4" href="#">4</a>
-                                            <a rel="5" href="#">5</a>
-                                            <a rel="6" href="#">6</a>
-                                            <span>...</span>
-                                            <a rel="2" class="ui-pager-next" href="#">下一页</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                            <div class="jkdhfld">
-                                <div class="mt"><h3>商品评价</h3></div>
-                                <div class="consult-rt">
-                                    <table class="consult-form">
-                                        <caption>我要发表咨询</caption>
-                                        <tbody>
-                                        <tr id="tr-zxlx">
-                                            <th>咨询类型:&nbsp;</th>
-                                            <td>
-                                                <label class="cst-type"><input type="radio" value="1">购买咨询</label>
-                                                <label class="cst-type"><input type="radio" value="2">促销优惠</label>
-                                                <label class="cst-type"><input type="radio" value="3">支付问题</label>
-                                                <label class="cst-type"><input type="radio" value="4">售后咨询</label>
-                                            </td>
-                                        </tr>
-                                        <tr class="consul_type_wrap">
-                                            <th>回复方式:&nbsp;</th>
-                                            <td>
-                                                <div>
-                                                    <label class="cst-type" for="consul_site">
-                                                        <input type="radio" value="consul_site" name="hffs-type"
-                                                               id="consul_site" checked="checked">网站
-                                                    </label>
-                                                    <label class="cst-type" for="consul_mail">
-                                                        <input type="radio" value="consul_mail" name="hffs-type"
-                                                               id="consul_mail">邮箱
-                                                    </label>
-                                                    <label class="cst-type" for="consul_weixin">
-                                                        <input type="radio" value="consul_weixin" name="hffs-type"
-                                                               id="consul_weixin">微信
-                                                    </label>
-                                                </div>
-                                                <div class="weixin-sm" style="display: none;">
-                                                    <div class="img-w">
-                                                        <img
-                                                            gome-src="//js.gomein.net.cn/f2eimage/ui/customer_service_weixin.jpg"
-                                                            alt="手机下单更优惠" title="手机下单更优惠">
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>扫描二维码，关注客服中心公众号，我们将为您提供更加快速便捷的咨询服务</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="consul_type_wrap" id="email-address" style="display: none;">
-                                            <th>邮箱地址:&nbsp;</th>
-                                            <td>
-                                                <input type="text" value="请填写您的邮箱，以便客服回复！" maxlength="50"
-                                                       id="consul_type_text" name="consul_type_text">
-                                                <span class="email-error"></span>
-                                            </td>
-                                        </tr>
-                                        <tr id="gm-zxnr">
-                                            <th>咨询内容:&nbsp;</th>
-                                            <td>
-                                                <div class="txt-area-wrap">
-                                                    <textarea name="" id="quesTxt" class="txt-area"></textarea>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="gm-submit">
-                                            <th></th>
-                                            <td><a class="consult-smt-btn redlink">提交</a><span class="tips">0/200</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="consult-lt">
-                                        <dl class="consult-question clearfix">
-                                            <dt>常见问题</dt>
-                                            <dd>•<a href="#" target="_blank" title="忘记密码如何操作？">忘记密码如何操作？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="如何增强账户安全系数？">如何增强账户安全系数？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="怎么操作商品签收？">怎么操作商品签收？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="如何电话订购？">如何电话订购？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="如何查询商品参数及包装清单？">如何查询商品参数及包装清单？</a>
-                                            </dd>
-                                            <dd>•<a href="#" target="_blank" title="商品无货怎么办？">商品无货怎么办？</a></dd>
-                                        </dl>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                        </div>
                         <!---->
                     </ul>
                     <!--售后保障-->
@@ -653,221 +464,14 @@
                             </div>
                             <!---->
                         </div>
-                        <div class="shouh_baoz_2">
-                            <div class="mt"><h3>商品评价</h3></div>
-                            <div class="mc">
-                                <div class="comment-info J-comment-info">
-                                    <div class="comment-percent">
-                                        <strong class="percent-tit">好评度</strong>
-                                        <div class="percent-con">99<span>%</span></div>
-                                    </div>
-                                </div>
-                                <!---->
-                                <div class="ETab">
-                                    <div class="tab-main small">
-                                        <ol class="filter-list">
-                                            <li class="current_xq" data-num="4900"><a href="#">全部评价<em>(4900+)</em></a>
-                                            </li>
-                                            <li><a href="#">晒图<em>(60)</em></a></li>
-                                            <li class="J-addComment"><a href="#">追评<em>(8)</em></a></li>
-                                            <li><a href="#">好评<em>(4900+)</em></a></li>
-                                            <li>
-                                                <a href="#">中评<em>(40+)</em></a></li>
-                                            <li><a href="#">差评<em>(20+)</em></a></li>
-                                            <li class="comm-curr-sku"><span><input type="checkbox"></span><label>只看当前商品评价</label>
-                                            </li>
-                                        </ol>
-                                        <div class="_extra_a">
-                                            <div class="sort-select">
-                                                <div class="current_tc"><span
-                                                        class="J-current-sortType">推荐排序</span><i></i></div>
-                                                <div class="others">
-                                                    <div class="curr"><span
-                                                            class="J-current-sortType">推荐排序</span><i></i></div>
-                                                    <ol>
-                                                        <li class="J-sortType-item">推荐排序</li>
-                                                        <li class="J-sortType-item">时间排序</li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                            <div class="tab_con">
-                                <ol class="replyListWrap">
-                                    <li class="oh_de">
-                                        <div class="reply-left">
-										<span class="detail-star bgiprd">
-											<b style="width:100%" class="bgiprd"></b>
-										</span>
-                                            <p>收货后1天评论</p>
-                                            <p><a target="_blank" href="//review.gome.com.cn/P136937461.html">2017-09-22
-                                                    12:44</a></p>
-                                            <p><span>白色 M码</span></p>
-                                        </div>
-                                        <div class="reply-center">
-                                            <p>正品行货，很棒</p>
-                                        </div>
-                                        <div class="reply-right">
-                                            <div class="reply_avatar">
-                                                <img src="{{asset ('org/shop')}}/images/7_170312181624_2.jpg">
-                                                <span class="reply_avatar_userName">祢夏了夏天</span>
-                                            </div>
-                                            <p class="profileGrade"><span class="viplevel">V2会员</span><span
-                                                    class="area">石家庄市</span></p>
-                                        </div>
-                                    </li>
-                                    <li class="oh_de">
-                                        <div class="reply-left">
-										<span class="detail-star bgiprd">
-											<b style="width:20%" class="bgiprd"></b>
-										</span>
-                                            <p>收货后1天评论</p>
-                                            <p><a target="_blank" href="//review.gome.com.cn/P136937461.html">2017-09-22
-                                                    12:44</a></p>
-                                            <p><span>白色 M码</span></p>
-                                        </div>
-                                        <div class="reply-center">
-                                            <p>正品行货，很棒</p>
-                                        </div>
-                                        <div class="reply-right">
-                                            <div class="reply_avatar">
-                                                <img src="{{asset ('org/shop')}}/images/7_170312181624_2.jpg">
-                                                <span class="reply_avatar_userName">祢夏了夏天</span>
-                                            </div>
-                                            <p class="profileGrade"><span class="viplevel">V2会员</span><span
-                                                    class="area">石家庄市</span></p>
-                                        </div>
-                                    </li>
-                                    <li class="oh_de">
-                                        <div class="reply-left">
-										<span class="detail-star bgiprd">
-											<b style="width:80%" class="bgiprd"></b>
-										</span>
-                                            <p>收货后1天评论</p>
-                                            <p><a target="_blank" href="//review.gome.com.cn/P136937461.html">2017-09-22
-                                                    12:44</a></p>
-                                            <p><span>白色 M码</span></p>
-                                        </div>
-                                        <div class="reply-center">
-                                            <p>正品行货，很棒</p>
-                                        </div>
-                                        <div class="reply-right">
-                                            <div class="reply_avatar">
-                                                <img src="{{asset ('org/shop')}}/images/7_170312181624_2.jpg">
-                                                <span class="reply_avatar_userName">祢夏了夏天</span>
-                                            </div>
-                                            <p class="profileGrade"><span class="viplevel">V2会员</span><span
-                                                    class="area">石家庄市</span></p>
-                                        </div>
-                                    </li>
-                                </ol>
-                                <div class="com-table-footer">
-                                    <div class="ui-page-wrap">
-                                        <div class="ui-page">
-                                            <a rel="1" class="ui-page-curr" href="#">1</a>
-                                            <a rel="2" href="#">2</a>
-                                            <a rel="3" href="#">3</a>
-                                            <a rel="4" href="#">4</a>
-                                            <a rel="5" href="#">5</a>
-                                            <a rel="6" href="#">6</a>
-                                            <span>...</span>
-                                            <a rel="2" class="ui-pager-next" href="#">下一页</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                            <div class="jkdhfld">
-                                <div class="mt"><h3>商品评价</h3></div>
-                                <div class="consult-rt">
-                                    <table class="consult-form">
-                                        <caption>我要发表咨询</caption>
-                                        <tbody>
-                                        <tr id="tr-zxlx">
-                                            <th>咨询类型:&nbsp;</th>
-                                            <td>
-                                                <label class="cst-type"><input type="radio" value="1">购买咨询</label>
-                                                <label class="cst-type"><input type="radio" value="2">促销优惠</label>
-                                                <label class="cst-type"><input type="radio" value="3">支付问题</label>
-                                                <label class="cst-type"><input type="radio" value="4">售后咨询</label>
-                                            </td>
-                                        </tr>
-                                        <tr class="consul_type_wrap">
-                                            <th>回复方式:&nbsp;</th>
-                                            <td>
-                                                <div>
-                                                    <label class="cst-type" for="consul_site">
-                                                        <input type="radio" value="consul_site" name="hffs-type"
-                                                               id="consul_site" checked="checked">网站
-                                                    </label>
-                                                    <label class="cst-type" for="consul_mail">
-                                                        <input type="radio" value="consul_mail" name="hffs-type"
-                                                               id="consul_mail">邮箱
-                                                    </label>
-                                                    <label class="cst-type" for="consul_weixin">
-                                                        <input type="radio" value="consul_weixin" name="hffs-type"
-                                                               id="consul_weixin">微信
-                                                    </label>
-                                                </div>
-                                                <div class="weixin-sm" style="display: none;">
-                                                    <div class="img-w">
-                                                        <img
-                                                            gome-src="//js.gomein.net.cn/f2eimage/ui/customer_service_weixin.jpg"
-                                                            alt="手机下单更优惠" title="手机下单更优惠">
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>扫描二维码，关注客服中心公众号，我们将为您提供更加快速便捷的咨询服务</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="consul_type_wrap" id="email-address" style="display: none;">
-                                            <th>邮箱地址:&nbsp;</th>
-                                            <td>
-                                                <input type="text" value="请填写您的邮箱，以便客服回复！" maxlength="50"
-                                                       id="consul_type_text" name="consul_type_text">
-                                                <span class="email-error"></span>
-                                            </td>
-                                        </tr>
-                                        <tr id="gm-zxnr">
-                                            <th>咨询内容:&nbsp;</th>
-                                            <td>
-                                                <div class="txt-area-wrap">
-                                                    <textarea name="" id="quesTxt" class="txt-area"></textarea>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="gm-submit">
-                                            <th></th>
-                                            <td><a class="consult-smt-btn redlink">提交</a><span class="tips">0/200</span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="consult-lt">
-                                        <dl class="consult-question clearfix">
-                                            <dt>常见问题</dt>
-                                            <dd>•<a href="#" target="_blank" title="忘记密码如何操作？">忘记密码如何操作？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="如何增强账户安全系数？">如何增强账户安全系数？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="怎么操作商品签收？">怎么操作商品签收？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="如何电话订购？">如何电话订购？</a></dd>
-                                            <dd>•<a href="#" target="_blank" title="如何查询商品参数及包装清单？">如何查询商品参数及包装清单？</a>
-                                            </dd>
-                                            <dd>•<a href="#" target="_blank" title="商品无货怎么办？">商品无货怎么办？</a></dd>
-                                        </dl>
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                        </div>
+
                     </ul>
                     <!--商品评价-->
                     <ul id="app">
                         <div class="shouh_baoz_2">
                             <div class="mt"><h3>商品评价</h3></div>
+
+
                             <div class="mc">
                                 <div class="comment-info J-comment-info">
                                     <div class="comment-percent">
@@ -875,7 +479,7 @@
                                         <div class="percent-con">99<span>%</span></div>
                                     </div>
                                 </div>
-                                <!---->
+
                                 <div class="ETab">
                                     <div class="tab-main small">
                                         <ol class="filter-list">
@@ -909,56 +513,45 @@
                             </div>
                             <!---->
                             <div class="tab_con">
-                                <ol class="replyListWrap">
-                                    <li class="oh_de">
-                                        <div class="reply-left">
-										<span class="detail-star bgiprd">
-											<b style="width:100%" class="bgiprd"></b>
-										</span>
-                                            <p>收货后1天评论</p>
-                                            <p><a target="_blank" href="//review.gome.com.cn/P136937461.html">2017-09-22
-                                                    12:44</a></p>
-                                            <p><span>白色 M码</span></p>
-                                        </div>
-                                        <div class="reply-center">
-                                            <p>正品行货，很棒</p>
-                                        </div>
-                                        <div class="reply-right">
-                                            <div class="reply_avatar">
-                                                <img src="{{asset ('org/shop')}}/images/7_170312181624_2.jpg">
-                                                <span class="reply_avatar_userName">祢夏了夏天</span>
-                                            </div>
-                                            <p class="profileGrade"><span class="viplevel">V2会员</span><span
-                                                    class="area">石家庄市</span></p>
-                                        </div>
-                                    </li>
 
+                                <ol class="replyListWrap">
+                                    @foreach($comments as $comment)
+                                        <li class="oh_de">
+                                            <div class="reply-left">
+
+                                                <p style="font-size: 12px;color: #999999;">{{$comment->name}}</p>
+                                                <p style="font-size: 12px;color: #999999;"><span>@foreach($comment->spes as $v) {{$v}}  @endforeach</span></p>
+                                            </div>
+                                            <div class="reply-center">
+                                                <p>{{$comment['content']}}</p>
+                                                <div style="margin-top: 40px;padding: 5px">
+                                                    @foreach($comment->pics as$k=>$v)
+                                                        <img class="pimg" src="{{$v}}" alt="你好" style="margin-left: 10px; cursor: pointer" width="30px">
+                                                    @endforeach
+                                                </div>
+                                                <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">
+                                                    <div id="innerdiv" style="position:absolute;">
+
+                                                        <img id="bigimg" style="border:5px solid #fff;" src="" />
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="reply-right">
+                                                <div class="reply_avatar">
+                                                    <img src="{{$comment->user->icon}}">
+                                                    <span class="reply_avatar_userName">{{$comment->user->name}}</span>
+                                                </div>
+                                                <p><a target="_blank" href="">发表于:{{$comment->created_at}}</a></p>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ol>
 
                             </div>
                             <!---->
-                            <div class="jkdhfld">
-                                <div class="mt"><h3>商品评价</h3></div>
 
-                                <div class="consult-rt">
-                                    <table class="consult-form">
-
-                                        <tbody>
-
-                                        <tr id="gm-zxnr">
-
-                                            <td>
-                                                <div class="txt-area-wrap">
-                                                    <textarea  v-model="message" name="" id="quesTxt"  class="txt-area"></textarea>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
                             <!---->
                         </div>
                     </ul>
@@ -1014,13 +607,110 @@
     </div>
 @endsection
 @push('css')
+    <link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/css/index.css">
     <link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/css/ziy.css">
+    {{--<link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/css/ziy.css">--}}
     <link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/houl/jquery.fancybox-1.3.4.css">
+    <link rel="stylesheet" href="{{asset ('org/layui/css/layui.css')}}">
 @endpush
 @push('js')
     <script type="text/javascript" src="{{asset ('org/shop')}}/houl/jquery.fancybox-1.3.4.js"></script>
     <script type="text/javascript" src="{{asset ('org/layer')}}/layer.js"></script>
+    <script type="text/javascript" src="{{asset ('org/layui')}}/layui.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
+    <script>
+        {{--var vm =new Vue({--}}
+        {{--el:'#app',--}}
+        {{--data:{--}}
+        {{--comment:'',--}}
+        {{--comments:[]--}}
+        {{--},--}}
+        {{--methods:{--}}
+        {{--send_comment(){--}}
+        {{--// alert(1);--}}
+        {{--$.post('{{route ('home.comment.store')}}',{_token:'{{csrf_token ()}}',id:'{{request ()->query ('id')}}',content:this.comment},function(res){--}}
+        {{--if (res.code==1){--}}
+        {{--console.log(res.comment);--}}
+        {{--vm.comments.push(res.comment)--}}
+        {{--vm.comment='';--}}
+        {{--}else{--}}
+        {{--swal("你还没登录,点确定去登录", {--}}
+        {{--buttons: {--}}
+        {{--cancel: "取消",--}}
+        {{--catch: {--}}
+        {{--text: "确定",--}}
+        {{--value: "catch",--}}
+        {{--},--}}
+        {{--},--}}
+        {{--}).then((value) => {--}}
+        {{--switch (value) {--}}
+        {{--case "catch":--}}
+        {{--location.href = "{{route ('home.user.login',['from'=>url ()->full()])}}"--}}
+        {{--break;--}}
+        {{--default:--}}
+        {{--}--}}
+        {{--});--}}
+        {{--}--}}
 
+        {{--},'json')--}}
+        {{--}--}}
+        {{--},--}}
+        {{--mounted() {--}}
+        {{--this.comments = '{{Cache::get ('comments')}}'--}}
+        {{--$.get('{{route ('home.comment.index',['id'=>request ()->query ('id')]) }}', function (res) {--}}
+        {{--// console.log(res.comments)--}}
+        {{--vm.comments = res.comments--}}
+        {{--},'json')--}}
+        {{--}--}}
+        {{--})--}}
+    </script>
+    <script>
+        $(function(){
+            $(".pimg").click(function(){
+                var _this = $(this);//将当前的pimg元素作为_this传入函数
+                imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+            });
+        });
+
+        function imgShow(outerdiv, innerdiv, bigimg, _this){
+            var src = _this.attr("src");//获取当前点击的pimg元素中的src属性
+            $(bigimg).attr("src", src);//设置#bigimg元素的src属性
+
+            /*获取当前点击图片的真实大小，并显示弹出层及大图*/
+            $("<img/>").attr("src", src).load(function(){
+                var windowW = $(window).width();//获取当前窗口宽度
+                var windowH = $(window).height();//获取当前窗口高度
+                var realWidth = this.width;//获取图片真实宽度
+                var realHeight = this.height;//获取图片真实高度
+                var imgWidth, imgHeight;
+                var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放
+
+                if(realHeight>windowH*scale) {//判断图片高度
+                    imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放
+                    imgWidth = imgHeight/realHeight*realWidth;//等比例缩放宽度
+                    if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度
+                        imgWidth = windowW*scale;//再对宽度进行缩放
+                    }
+                } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度
+                    imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放
+                    imgHeight = imgWidth/realWidth*realHeight;//等比例缩放高度
+                } else {//如果图片真实高度和宽度都符合要求，高宽不变
+                    imgWidth = realWidth;
+                    imgHeight = realHeight;
+                }
+                $(bigimg).css("width",imgWidth);//以最终的宽度对图片缩放
+
+                var w = (windowW-imgWidth)/2;//计算图片与窗口左边距
+                var h = (windowH-imgHeight)/2;//计算图片与窗口上边距
+                $(innerdiv).css({"top":h, "left":w});//设置#innerdiv的top和left属性
+                $(outerdiv).fadeIn("fast");//淡入显示#outerdiv及.pimg
+            });
+
+            $(outerdiv).click(function(){//再次点击淡出消失弹出层
+                $(this).fadeOut("fast");
+            });
+        }
+    </script>
     <script type="text/javascript">
         (function () {
             var $subblock = $(".subpage"), $head = $subblock.find('h2'), $ul = $("#proinfo"), $lis = $ul.find("li"),
@@ -1044,12 +734,14 @@
                 inter = !inter;
             });
         })();
+
         //选择规格
         function chooseId(obj) {
             //选中效果
             $(obj).addClass('select').parent('.prdcol').siblings('.prdcol').find('a').removeClass('select')
             $(obj).addClass('select').parent('.prdmod').siblings('.prdmod').find('a').removeClass('select')
         };
+
         //提交数据到购物车
         function subdata() {
             //如果规格都选定了以后,通过ajax把数据提交到cart的store方法,存入数据库
@@ -1097,8 +789,9 @@
                 layer.msg('请选择规格和购买数量')
             }
         }
+
         //立即购买
-        function buy(){
+        function buy() {
             //登录判断
             if ($('#yj_spec>.prdRight_1>.prdmod>a').hasClass('select') && $('#yj_color>.prdcol>a').hasClass('select') && $('#yj_num').val()) {
                 $.ajax({
@@ -1114,7 +807,7 @@
                     dataType: 'json',
                     //成功的回调
                     success: function (res) {
-                                // console.log(res)
+                        // console.log(res)
                         // 如果没有登录的话,handler方法会返回一个code=0 ,让用户选择是否登录然后,登录后调回商品详情页面!
                         if (res.code == 0) {
                             //使用sweetalert弹框!
@@ -1137,7 +830,7 @@
                         } else {
                             //否则store方法返回一个code=1,表示添加成功.
                             // layer.msg('添加成功')
-                            location.href='{{route ('home.order.index')}}'+'?ids='+res.ids
+                            location.href = '{{route ('home.order.index')}}' + '?ids=' + res.ids
                         }
                     },
                 })
@@ -1146,14 +839,5 @@
             }
         }
     </script>
-    <script src="https://cdn.bootcss.com/vue/2.5.21/vue.min.js"></script>
-    <script>
-        new Vue({
-            el:'#app',
-            data:{
-                message:'',
-            }
 
-        })
-    </script>
 @endpush

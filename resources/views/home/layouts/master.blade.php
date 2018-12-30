@@ -5,7 +5,7 @@
     <title>WangID通城</title>
     <link rel="stylesheet" type="text/css" href="{{asset ('org/shop')}}/css/index.css">
     <script src="{{asset ('org/shop')}}/js/jquery-1.11.3.min.js"></script>
-
+    <meta name="csrf-token" content="{{csrf_token ()}}">
     <!-- <script type="text/javascript" src="js/jquery1.42.min.js"></script> -->
     <script type="text/javascript" src="{{asset ('org/shop')}}/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="{{asset ('org/shop')}}/js/jquery.SuperSlide.2.1.1.source.js"></script>

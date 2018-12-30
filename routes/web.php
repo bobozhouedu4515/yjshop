@@ -93,8 +93,10 @@
         //购物车
         Route ::resource ('cart', 'CartController');
         //qq登录
+        Route::get ('user/qq_connect','UserController@qqConnect')->name ('user.qq_connect');
         Route ::any ('user/qq_login', 'UserController@qqlogin') -> name ('uer.qq_login');
-
+        //注册用户异步验证是否存在
+        Route::post ('user/is_exist','UserController@isExist')->name ('user.is_exist');
 
 
     });
@@ -118,4 +120,6 @@
         Route ::resource ('order', 'OrderController');
         //支付
         Route ::get ('pay/index', 'PayController@index') -> name ('pay.index');
+        //评论
+        Route::resource ('comment','CommentController');
     });

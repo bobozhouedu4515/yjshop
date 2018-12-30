@@ -16,6 +16,7 @@ class AddressController extends CommonController
     public function index()
     {
         $addresses=Address::where ('user_id',auth ()->id ())->get();
+//        dd ($addresses);
         return view ('home.address.index',compact ('addresses'));
     }
 
