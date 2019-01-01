@@ -1238,37 +1238,99 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="229" name="content">
+    <column id="287" parent="229" name="order_id">
       <Position>4</Position>
-      <Comment>评论内容</Comment>
+      <Comment>订单id</Comment>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="229" name="name">
+      <Position>5</Position>
+      <Comment>商品名称</Comment>
       <DataType>varchar(191)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="289" parent="229" name="pics">
+      <Position>6</Position>
+      <Comment>评论图片</Comment>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="290" parent="229" name="spes">
+      <Position>7</Position>
+      <Comment>商品规格</Comment>
+      <DataType>varchar(191)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="229" name="satisfaction">
+      <Position>8</Position>
+      <Comment>商品满意度</Comment>
+      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;)|0e</DataType>
+      <DefaultExpression>&apos;5&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="292" parent="229" name="goods_satisfaction">
+      <Position>9</Position>
+      <Comment>商品符合度</Comment>
+      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;)|0e</DataType>
+      <DefaultExpression>&apos;5&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="293" parent="229" name="shop_satisfaction">
+      <Position>10</Position>
+      <Comment>店家服务态度</Comment>
+      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;)|0e</DataType>
+      <DefaultExpression>&apos;5&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="294" parent="229" name="shiping_satisfaction">
+      <Position>11</Position>
+      <Comment>物流满意度</Comment>
+      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;)|0e</DataType>
+      <DefaultExpression>&apos;5&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="229" name="server_satisfaction">
+      <Position>12</Position>
+      <Comment>快递满意度</Comment>
+      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;)|0e</DataType>
+      <DefaultExpression>&apos;5&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="229" name="content">
+      <Position>13</Position>
+      <Comment>评论内容</Comment>
+      <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="229" name="created_at">
-      <Position>5</Position>
+    <column id="297" parent="229" name="created_at">
+      <Position>14</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="229" name="updated_at">
-      <Position>6</Position>
+    <column id="298" parent="229" name="updated_at">
+      <Position>15</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="290" parent="229" name="PRIMARY">
+    <key id="299" parent="229" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="291" parent="230" name="id">
+    <column id="300" parent="230" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="230" name="name">
+    <column id="301" parent="230" name="name">
       <Position>2</Position>
       <Comment>配置项名称</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1276,36 +1338,36 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="230" name="content">
+    <column id="302" parent="230" name="content">
       <Position>3</Position>
       <Comment>配置项内容</Comment>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="230" name="created_at">
+    <column id="303" parent="230" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="230" name="updated_at">
+    <column id="304" parent="230" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="296" parent="230" name="PRIMARY">
+    <key id="305" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="297" parent="231" name="id">
+    <column id="306" parent="231" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="231" name="order_id">
+    <column id="307" parent="231" name="order_id">
       <Position>2</Position>
       <Comment>订单 id</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1313,7 +1375,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="231" name="title">
+    <column id="308" parent="231" name="title">
       <Position>3</Position>
       <Comment>商品名称</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1321,7 +1383,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="231" name="pic">
+    <column id="309" parent="231" name="pic">
       <Position>4</Position>
       <Comment>商品图片</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1329,7 +1391,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="231" name="spec">
+    <column id="310" parent="231" name="spec">
       <Position>5</Position>
       <Comment>商品规格</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1337,7 +1399,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="231" name="color">
+    <column id="311" parent="231" name="color">
       <Position>6</Position>
       <Comment>颜色</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1345,7 +1407,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="231" name="num">
+    <column id="312" parent="231" name="num">
       <Position>7</Position>
       <Comment>购买数量</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1353,7 +1415,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="231" name="price">
+    <column id="313" parent="231" name="price">
       <Position>8</Position>
       <Comment>商品单价</Comment>
       <DataType>decimal(8,2 digit)|0s</DataType>
@@ -1361,7 +1423,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="231" name="good_id">
+    <column id="314" parent="231" name="good_id">
       <Position>9</Position>
       <Comment>商品 id</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1369,40 +1431,40 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="231" name="created_at">
+    <column id="315" parent="231" name="created_at">
       <Position>10</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="231" name="updated_at">
+    <column id="316" parent="231" name="updated_at">
       <Position>11</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="308" parent="231" name="detail_orders_order_id_index">
+    <index id="317" parent="231" name="detail_orders_order_id_index">
       <ColNames>order_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="309" parent="231" name="PRIMARY">
+    <key id="318" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="310" parent="231" name="detail_orders_order_id_foreign">
+    <foreign-key id="319" parent="231" name="detail_orders_order_id_foreign">
       <ColNames>order_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>orders</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="311" parent="232" name="id">
+    <column id="320" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="232" name="name">
+    <column id="321" parent="232" name="name">
       <Position>2</Position>
       <Comment>商品名称</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1410,7 +1472,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="232" name="price">
+    <column id="322" parent="232" name="price">
       <Position>3</Position>
       <Comment>商品价格</Comment>
       <DataType>decimal(8,2 digit)|0s</DataType>
@@ -1418,7 +1480,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="232" name="product_id">
+    <column id="323" parent="232" name="product_id">
       <Position>4</Position>
       <Comment>所属类目</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1426,7 +1488,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="232" name="picture">
+    <column id="324" parent="232" name="picture">
       <Position>5</Position>
       <Comment>商品图片</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1434,14 +1496,14 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="232" name="pictures">
+    <column id="325" parent="232" name="pictures">
       <Position>6</Position>
       <Comment>商品图册</Comment>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="232" name="description">
+    <column id="326" parent="232" name="description">
       <Position>7</Position>
       <Comment>商品描述</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1449,14 +1511,14 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="232" name="content">
+    <column id="327" parent="232" name="content">
       <Position>8</Position>
       <Comment>商品详情</Comment>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="232" name="admin_id">
+    <column id="328" parent="232" name="admin_id">
       <Position>9</Position>
       <Comment>操作的管理员</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1464,7 +1526,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="232" name="total">
+    <column id="329" parent="232" name="total">
       <Position>10</Position>
       <Comment>商品总数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1472,192 +1534,192 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="232" name="created_at">
+    <column id="330" parent="232" name="created_at">
       <Position>11</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="232" name="updated_at">
+    <column id="331" parent="232" name="updated_at">
       <Position>12</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="323" parent="232" name="goods_product_id_index">
+    <index id="332" parent="232" name="goods_product_id_index">
       <ColNames>product_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="324" parent="232" name="goods_admin_id_index">
+    <index id="333" parent="232" name="goods_admin_id_index">
       <ColNames>admin_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="325" parent="232" name="PRIMARY">
+    <key id="334" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="326" parent="232" name="goods_product_id_foreign">
+    <foreign-key id="335" parent="232" name="goods_product_id_foreign">
       <ColNames>product_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>products</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="327" parent="232" name="goods_admin_id_foreign">
+    <foreign-key id="336" parent="232" name="goods_admin_id_foreign">
       <ColNames>admin_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>admins</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="328" parent="233" name="id">
+    <column id="337" parent="233" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="233" name="migration">
+    <column id="338" parent="233" name="migration">
       <Position>2</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="233" name="batch">
+    <column id="339" parent="233" name="batch">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="331" parent="233" name="PRIMARY">
+    <key id="340" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="332" parent="234" name="permission_id">
+    <column id="341" parent="234" name="permission_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="234" name="model_type">
+    <column id="342" parent="234" name="model_type">
       <Position>2</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="234" name="model_id">
+    <column id="343" parent="234" name="model_id">
       <Position>3</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="335" parent="234" name="model_has_permissions_model_id_model_type_index">
+    <index id="344" parent="234" name="model_has_permissions_model_id_model_type_index">
       <ColNames>model_id
 model_type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="336" parent="234" name="PRIMARY">
+    <key id="345" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>permission_id
 model_id
 model_type</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="337" parent="234" name="model_has_permissions_permission_id_foreign">
+    <foreign-key id="346" parent="234" name="model_has_permissions_permission_id_foreign">
       <ColNames>permission_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>permissions</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="338" parent="235" name="role_id">
+    <column id="347" parent="235" name="role_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="235" name="model_type">
+    <column id="348" parent="235" name="model_type">
       <Position>2</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="235" name="model_id">
+    <column id="349" parent="235" name="model_id">
       <Position>3</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="341" parent="235" name="model_has_roles_model_id_model_type_index">
+    <index id="350" parent="235" name="model_has_roles_model_id_model_type_index">
       <ColNames>model_id
 model_type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="342" parent="235" name="PRIMARY">
+    <key id="351" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>role_id
 model_id
 model_type</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="343" parent="235" name="model_has_roles_role_id_foreign">
+    <foreign-key id="352" parent="235" name="model_has_roles_role_id_foreign">
       <ColNames>role_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>roles</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="344" parent="236" name="id">
+    <column id="353" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="236" name="title">
+    <column id="354" parent="236" name="title">
       <Position>2</Position>
       <Comment>模块的中文名称</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="236" name="name">
+    <column id="355" parent="236" name="name">
       <Position>3</Position>
       <Comment>模块的英文标识</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="236" name="permissions">
+    <column id="356" parent="236" name="permissions">
       <Position>4</Position>
       <Comment>模块的权限</Comment>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="236" name="created_at">
+    <column id="357" parent="236" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="236" name="updated_at">
+    <column id="358" parent="236" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="350" parent="236" name="PRIMARY">
+    <key id="359" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="351" parent="237" name="id">
+    <column id="360" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="237" name="user_id">
+    <column id="361" parent="237" name="user_id">
       <Position>2</Position>
       <Comment>用户id</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1665,127 +1727,139 @@ model_type</ColNames>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="237" name="number">
+    <column id="362" parent="237" name="order_id">
       <Position>3</Position>
+      <Comment>订单id</Comment>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="363" parent="237" name="number">
+      <Position>4</Position>
       <Comment>定单号</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="237" name="address_id">
-      <Position>4</Position>
+    <column id="364" parent="237" name="address_id">
+      <Position>5</Position>
       <Comment>地址id</Comment>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="237" name="total_num">
-      <Position>5</Position>
+    <column id="365" parent="237" name="total_num">
+      <Position>6</Position>
       <Comment>商品数量</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="237" name="total_price">
-      <Position>6</Position>
+    <column id="366" parent="237" name="total_price">
+      <Position>7</Position>
       <Comment>商品单价</Comment>
       <DataType>decimal(8,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="237" name="status">
-      <Position>7</Position>
-      <Comment>1未支付,2已支付,3,待发货,4已发货,5收货</Comment>
-      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;)|0e</DataType>
+    <column id="367" parent="237" name="status">
+      <Position>8</Position>
+      <Comment>1未支付,2已支付,3,待发货,4已发货,5收货,6已评价</Comment>
+      <DataType>enum(&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;, &apos;6&apos;)|0e</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="237" name="created_at">
-      <Position>8</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="359" parent="237" name="updated_at">
+    <column id="368" parent="237" name="created_at">
       <Position>9</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="360" parent="237" name="orders_user_id_index">
+    <column id="369" parent="237" name="updated_at">
+      <Position>10</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="370" parent="237" name="orders_user_id_index">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="361" parent="237" name="orders_address_id_index">
+    <index id="371" parent="237" name="orders_order_id_index">
+      <ColNames>order_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="372" parent="237" name="orders_address_id_index">
       <ColNames>address_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="362" parent="237" name="PRIMARY">
+    <key id="373" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="363" parent="237" name="orders_user_id_foreign">
+    <foreign-key id="374" parent="237" name="orders_user_id_foreign">
       <ColNames>user_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="364" parent="238" name="email">
+    <column id="375" parent="238" name="email">
       <Position>1</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="238" name="token">
+    <column id="376" parent="238" name="token">
       <Position>2</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="238" name="created_at">
+    <column id="377" parent="238" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="367" parent="238" name="password_resets_email_index">
+    <index id="378" parent="238" name="password_resets_email_index">
       <ColNames>email</ColNames>
       <Type>btree</Type>
     </index>
-    <column id="368" parent="239" name="id">
+    <column id="379" parent="239" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="239" name="created_at">
+    <column id="380" parent="239" name="created_at">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="239" name="updated_at">
+    <column id="381" parent="239" name="updated_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="371" parent="239" name="PRIMARY">
+    <key id="382" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="372" parent="240" name="id">
+    <column id="383" parent="240" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="240" name="title">
+    <column id="384" parent="240" name="title">
       <Position>2</Position>
       <Comment>权限的中文名称</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1793,43 +1867,43 @@ model_type</ColNames>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="240" name="name">
+    <column id="385" parent="240" name="name">
       <Position>3</Position>
       <Comment>权限的英文表示</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="240" name="guard_name">
+    <column id="386" parent="240" name="guard_name">
       <Position>4</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;admin&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="240" name="created_at">
+    <column id="387" parent="240" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="240" name="updated_at">
+    <column id="388" parent="240" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="378" parent="240" name="PRIMARY">
+    <key id="389" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="379" parent="241" name="id">
+    <column id="390" parent="241" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="241" name="name">
+    <column id="391" parent="241" name="name">
       <Position>2</Position>
       <Comment>商品类名</Comment>
       <DataType>varchar(191)|0s</DataType>
@@ -1837,7 +1911,7 @@ model_type</ColNames>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="241" name="pid">
+    <column id="392" parent="241" name="pid">
       <Position>3</Position>
       <Comment>无限极分类</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1845,108 +1919,108 @@ model_type</ColNames>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="241" name="created_at">
+    <column id="393" parent="241" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="241" name="updated_at">
+    <column id="394" parent="241" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="384" parent="241" name="PRIMARY">
+    <key id="395" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="385" parent="242" name="permission_id">
+    <column id="396" parent="242" name="permission_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="242" name="role_id">
+    <column id="397" parent="242" name="role_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="387" parent="242" name="role_has_permissions_role_id_foreign">
+    <index id="398" parent="242" name="role_has_permissions_role_id_foreign">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="388" parent="242" name="PRIMARY">
+    <key id="399" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>permission_id
 role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="389" parent="242" name="role_has_permissions_permission_id_foreign">
+    <foreign-key id="400" parent="242" name="role_has_permissions_permission_id_foreign">
       <ColNames>permission_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>permissions</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="390" parent="242" name="role_has_permissions_role_id_foreign">
+    <foreign-key id="401" parent="242" name="role_has_permissions_role_id_foreign">
       <ColNames>role_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>roles</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="391" parent="243" name="id">
+    <column id="402" parent="243" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="243" name="title">
+    <column id="403" parent="243" name="title">
       <Position>2</Position>
       <Comment>角色的中文名</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="243" name="name">
+    <column id="404" parent="243" name="name">
       <Position>3</Position>
       <Comment>角色的英文标识</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="243" name="guard_name">
+    <column id="405" parent="243" name="guard_name">
       <Position>4</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;admin&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="243" name="created_at">
+    <column id="406" parent="243" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="243" name="updated_at">
+    <column id="407" parent="243" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="397" parent="243" name="PRIMARY">
+    <key id="408" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="398" parent="244" name="id">
+    <column id="409" parent="244" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="244" name="spec">
+    <column id="410" parent="244" name="spec">
       <Position>2</Position>
       <Comment>商品规格</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -1954,14 +2028,14 @@ role_id</ColNames>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="244" name="color">
+    <column id="411" parent="244" name="color">
       <Position>3</Position>
       <Comment>颜色</Comment>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="401" parent="244" name="total">
+    <column id="412" parent="244" name="total">
       <Position>4</Position>
       <Comment>库存</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1969,7 +2043,7 @@ role_id</ColNames>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="402" parent="244" name="good_id">
+    <column id="413" parent="244" name="good_id">
       <Position>5</Position>
       <Comment>所属商品id</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1977,134 +2051,134 @@ role_id</ColNames>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="403" parent="244" name="created_at">
+    <column id="414" parent="244" name="created_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="244" name="updated_at">
+    <column id="415" parent="244" name="updated_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="405" parent="244" name="specifications_good_id_index">
+    <index id="416" parent="244" name="specifications_good_id_index">
       <ColNames>good_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="406" parent="244" name="PRIMARY">
+    <key id="417" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="407" parent="244" name="specifications_good_id_foreign">
+    <foreign-key id="418" parent="244" name="specifications_good_id_foreign">
       <ColNames>good_id</ColNames>
       <RefSchemaName>yjshop_bobozhou_</RefSchemaName>
       <RefTableName>goods</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="408" parent="245" name="id">
+    <column id="419" parent="245" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="409" parent="245" name="name">
+    <column id="420" parent="245" name="name">
       <Position>2</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="410" parent="245" name="mobile">
+    <column id="421" parent="245" name="mobile">
       <Position>3</Position>
       <Comment>手机号注册</Comment>
       <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="245" name="email">
+    <column id="422" parent="245" name="email">
       <Position>4</Position>
       <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="412" parent="245" name="mobile_verified_at">
+    <column id="423" parent="245" name="mobile_verified_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="413" parent="245" name="email_verified_at">
+    <column id="424" parent="245" name="email_verified_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="414" parent="245" name="password">
+    <column id="425" parent="245" name="password">
       <Position>7</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="415" parent="245" name="username">
+    <column id="426" parent="245" name="username">
       <Position>8</Position>
       <Comment>用户姓名</Comment>
       <DataType>varchar(191)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="416" parent="245" name="sex">
+    <column id="427" parent="245" name="sex">
       <Position>9</Position>
       <Comment>用户性别</Comment>
       <DataType>enum(&apos;男&apos;, &apos;女&apos;, &apos;保密&apos;)|0e</DataType>
       <DefaultExpression>&apos;男&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="245" name="icon">
+    <column id="428" parent="245" name="icon">
       <Position>10</Position>
       <Comment>用户头像</Comment>
       <DataType>varchar(191)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="245" name="remember_token">
+    <column id="429" parent="245" name="remember_token">
       <Position>11</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="245" name="created_at">
+    <column id="430" parent="245" name="created_at">
       <Position>12</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="245" name="updated_at">
+    <column id="431" parent="245" name="updated_at">
       <Position>13</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="245" name="open_id">
+    <column id="432" parent="245" name="open_id">
       <Position>14</Position>
       <Comment>qq登录id</Comment>
       <DataType>varchar(191)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="422" parent="245" name="users_mobile_unique">
+    <index id="433" parent="245" name="users_mobile_unique">
       <ColNames>mobile</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="423" parent="245" name="users_email_unique">
+    <index id="434" parent="245" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="424" parent="245" name="PRIMARY">
+    <key id="435" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="425" parent="245" name="users_mobile_unique">
+    <key id="436" parent="245" name="users_mobile_unique">
       <ColNames>mobile</ColNames>
       <UnderlyingIndexName>users_mobile_unique</UnderlyingIndexName>
     </key>
-    <key id="426" parent="245" name="users_email_unique">
+    <key id="437" parent="245" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>

@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger ('user_id')->comment ('用户id');
             $table->unsignedInteger ('good_id')->comment ('商品id');
+            $table->unsignedInteger ('order_id')->comment ('订单id');
             $table->string ('name')->comment ('商品名称');
             $table->text('pics')->nullable ()->comment ('评论图片');
             $table->string ('spes')->comment ('商品规格');

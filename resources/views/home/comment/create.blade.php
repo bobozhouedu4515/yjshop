@@ -85,10 +85,10 @@
             <div class="shangp_pingj">
                 <div class="shangp_minc_ji">
                     <div class="comment_goods">
-                        <p class="zuo_img"><a href="#"><img src="{{asset ('org/shop')}}/images/lieb_tupi2.jpg"></a></p>
-                        <p><a href="#">威莱登尼 棒球帽男女夏季防晒遮阳帽韩版潮鸭舌帽太阳的后裔平顶帽子 热卖纯色平</a></p>
-                        <span class="zuo_jiag">￥58.00</span>
-                        <span>热卖纯色平顶  黑色</span>
+                        <p class="zuo_img"><a href="#"><img src="{{$details->pic}}"></a></p>
+                        <p><a href="#">{{$details->title}}</a></p>
+                        <span class="zuo_jiag">￥:{{$details->price}}元</span>
+                        <span>规格:{{$details->spec}}&nbsp;&nbsp;{{$details->color}}</span>
                     </div>
                 </div>
                 <div class="dianpu_minc_you">

@@ -42,11 +42,11 @@
                             <a href="{{route ('admin.order.shipping',$order)}}" class="layui-btn layui-btn-normal">未发货</a>
                         @endif
 
-                        @if($order->status==5)
+                        @if($order->status>=5)
                             <a href="JavaScript:;"
-                               class="layui-btn layui-btn-normal">已收货</a>
+                               class="layui-btn ">已收货</a>
                         @else
-                            <a href="JavaScript:;" class="layui-btn  ">未收货</a>
+                            <a href="JavaScript:;" class="layui-btn layui-btn-normal  ">未收货</a>
                         @endif
                     </div>
                 </td>

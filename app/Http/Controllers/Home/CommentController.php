@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\Comment;
 use App\Models\DetailOrder;
 use App\Models\Good;
+use App\Models\Order;
 use App\Models\Specification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -39,7 +40,9 @@ class CommentController extends CommonController
      */
     public function create()
     {
-        return view ('home.comment.create');
+        $id = \request () -> query ('id');
+        $details=DetailOrder::where('order_id',$id)->first();
+        return view ('home.comment.create',compact ('details'));
     }
 
     /**
@@ -53,7 +56,9 @@ class CommentController extends CommonController
 //        dd ($request -> all ());
         $spes=DetailOrder::where('order_id',$request->id)->first();
         $goods=Good::where('id',$spes->good_id)->first();
+        \DB::beginTransaction ();
         $comment->name=$goods->name;
+        $comment->order_id=$request['id'];
         $comment -> user_id = auth () -> id ();
         $comment->good_id=$spes->good_id;
         $comment->spes=[$spes->color,$spes->spec];
@@ -66,6 +71,9 @@ class CommentController extends CommonController
         $comment->content=$request['content'];
         $comment -> save ();
 
+        Order::where('id',$request->id)->update(['status'=>6]);
+        \DB::commit ();
+            return back ()->with ('success','保存成功');
 
 
 

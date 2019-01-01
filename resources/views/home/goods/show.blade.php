@@ -518,7 +518,20 @@
                                     @foreach($comments as $comment)
                                         <li class="oh_de">
                                             <div class="reply-left">
+                                                <div class="dianpu_minc_you" style="margin-left: 0;width: 114px;">
+                                                    <!---->
+                                                    <div class="shangp_xx">
 
+                                                        <span class="commstar">
+
+					 		                            <span  class="star star{{intval ($comment->satisfaction)}} hover" ></span>
+
+                                                            <span class="star_info" id="goods_score">{{$comment->satisfaction}}分</span>
+					                        	        </span>
+                                                    </div>
+
+                                                    <!--******-->
+                                                </div>
                                                 <p style="font-size: 12px;color: #999999;">{{$comment->name}}</p>
                                                 <p style="font-size: 12px;color: #999999;"><span>@foreach($comment->spes as $v) {{$v}}  @endforeach</span></p>
                                             </div>

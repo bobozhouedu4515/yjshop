@@ -15,7 +15,7 @@
         <tr>
             <th>订单编号</th>
             <th>订单总价</th>
-            <th>订单数量</th>
+            <th>数量</th>
             <th>订单状态</th>
             <th>操作</th>
         </tr>
@@ -27,36 +27,45 @@
                 <td>¥:{{$order->total_price}}元</td>
                 <td>{{$order->total_num}}</td>
                 <td>
-                    <div class="layui-btn-group">
-                        @if($order->status==1)
-                            <a href="{{route ('pay.pay_wechat',['id'=>$order->id])}}"
-                               class="layui-btn layui-btn-normal">去支付</a>
+                    <div class="layui-btn-group" style="width: 450px">
+                        @if($order->status>1)
+                            <a href="JavaScript:;"
+                               class="layui-btn layui-btn-normal">已支付</a>
                         @else
-                            <a href="JavaScript:;" class="layui-btn  ">已支付</a>
+                            <a href="{{route ('pay.pay_wechat',['id'=>$order->id])}}" class="layui-btn  ">去支付</a>
                         @endif
 
-                        @if($order->status>=3)
+                        @if($order->status>3)
                             <a href="javaScript:;"
-                               class="layui-btn ">已发货</a>
-                        @else
-                            <a href="JavaScript:;" class="layui-btn layui-btn-normal">未发货</a>
+                               class="layui-btn layui-btn-normal">已发货</a>
+                        @elseif($order->status!=5)
+                            <a href="JavaScript:;" class="layui-btn ">未发货</a>
                         @endif
 
-                        @if($order->status==4)
+                        @if($order->status>=5)
                             <a href="javaScript:;"
-                               class="layui-btn ">已经收货</a>
+                               class="layui-btn layui-btn-normal ">已经收货</a>
                         @else
-                            <a href="{{route ('home.user.receipt',$order)}}" class="layui-btn layui-btn-normal" >确认收货</a>
+                            <a href="{{route ('home.user.receipt',$order)}}" class="layui-btn " >确认收货</a>
                         @endif
-
-                            <a href="{{route ('home.comment.create',['id'=>$order->id])}}" class="layui-btn layui-btn-normal" >去评价</a>
-                        <a href="JavaScript:;" onclick="del()">
-                            <button class="layui-btn layui-btn-danger">删除</button>
-                        </a>
-                        <form action="" method="post">
-                            @csrf  @method('delete')
-                        </form>
+                            @if($order->status==5)
+                            <a href="{{route ('home.comment.create',['id'=>$order->id])}}" class="layui-btn " >去评价</a>
+                                @elseif($order->status==6)
+                                <a href="JavaScript:;" class="layui-btn layui-btn-normal " >已评价</a>
+                            @endif
+                            @if($order->status==6)
+                                <a href="javaScript:;"
+                                   class="layui-btn layui-btn-normal ">交易完成</a>
+            @endif
                     </div>
+                </td>
+                <td>
+                    <a href="JavaScript:;" onclick="del()">
+                        <button class="layui-btn layui-btn-danger">删除</button>
+                    </a>
+                    <form action="" method="post">
+                        @csrf  @method('delete')
+                    </form>
                 </td>
             </tr>
         @endforeach

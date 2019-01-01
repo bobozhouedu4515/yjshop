@@ -26,7 +26,7 @@ class AddOpenidToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string ('open_id')->nullable ()->comment ('qq登录id');
+
         });
     }
 }
